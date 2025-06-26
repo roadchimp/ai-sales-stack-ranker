@@ -6,64 +6,46 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Clock, DollarSign } from "lucide-react"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Checkbox } from "@/components/ui/checkbox"
+import { PipelineBubbleChart } from "@/components/pipeline-bubble-chart"
+import { DollarSign, Calendar, TrendingUp, Eye, MoreHorizontal } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { sampleOpportunities } from "@/lib/sample-data"
 
-const deals = [
-  {
-    id: 1,
-    company: "Acme Corporation",
-    value: 45000,
-    stage: "Negotiation",
-    probability: 85,
-    rep: "Sarah Johnson",
-    lastActivity: "2 hours ago",
-    health: "high",
-    meddicc: {
-      metrics: true,
-      economic: true,
-      decision: false,
-      process: true,
-      pain: true,
-      champion: true,
-    },
-  },
-  {
-    id: 2,
-    company: "TechStart Inc",
-    value: 120000,
-    stage: "Proposal",
-    probability: 75,
-    rep: "Mike Chen",
-    lastActivity: "1 day ago",
-    health: "medium",
-    meddicc: {
-      metrics: true,
-      economic: false,
-      decision: true,
-      process: true,
-      pain: true,
-      champion: false,
-    },
-  },
-  {
-    id: 3,
-    company: "Global Systems",
-    value: 80000,
-    stage: "Qualification",
-    probability: 60,
-    rep: "Emily Davis",
-    lastActivity: "3 days ago",
-    health: "low",
-    meddicc: {
-      metrics: false,
-      economic: true,
-      decision: false,
-      process: false,
-      pain: true,
-      champion: true,
-    },
-  },
-]
+const opportunities = sampleOpportunities
+
+const getHealthColor = (health: string) => {
+  switch (health) {
+    case "high":
+      return "text-green-600 bg-green-100 dark:text-green-400 dark:bg-green-900/20"
+    case "medium":
+      return "text-yellow-600 bg-yellow-100 dark:text-yellow-400 dark:bg-yellow-900/20"
+    case "low":
+      return "text-red-600 bg-red-100 dark:text-red-400 dark:bg-red-900/20"
+    default:
+      return "text-gray-600 bg-gray-100 dark:text-gray-400 dark:bg-gray-900/20"
+  }
+}
+
+const getStageColor = (stage: string) => {
+  switch (stage) {
+    case "Business Negotiation":
+      return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400"
+    case "Proof of Value":
+      return "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/20 dark:text-cyan-400"
+    case "Consensus / Demo":
+      return "bg-teal-100 text-teal-800 dark:bg-teal-900/20 dark:text-teal-400"
+    case "Discovery (SAO)":
+      return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+    case "Qualification (SAL)":
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
+    case "Legal Review":
+      return "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400"
+    default:
+      return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
+  }
+}
 
 export default function PipelinePage() {
   return (
@@ -76,117 +58,155 @@ export default function PipelinePage() {
       <div className="flex-1 space-y-6 p-6">
         {/* Pipeline Summary */}
         <div className="grid gap-4 md:grid-cols-4">
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Total Pipeline</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$2.3M</div>
-              <p className="text-xs text-muted-foreground">32 active deals</p>
+              <div className="text-2xl font-bold">$2.5M</div>
+              <p className="text-xs text-muted-foreground">34 active opportunities</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Weighted Pipeline</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$1.6M</div>
+              <div className="text-2xl font-bold">$1.8M</div>
               <p className="text-xs text-muted-foreground">Probability adjusted</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">This Quarter</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$890K</div>
+              <div className="text-2xl font-bold">$1.2M</div>
               <p className="text-xs text-muted-foreground">Expected to close</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">At Risk</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-red-600">$340K</div>
+              <div className="text-2xl font-bold text-red-600">$456K</div>
               <p className="text-xs text-muted-foreground">Needs attention</p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Deal List */}
-        <Card>
+        {/* Bubble Chart */}
+        <PipelineBubbleChart />
+
+        {/* Active Pipeline Table */}
+        <Card className="card-enhanced border-primary/20">
           <CardHeader>
-            <CardTitle>Active Deals</CardTitle>
-            <CardDescription>Deals ranked by AI-powered health score</CardDescription>
+            <CardTitle>Active Pipeline</CardTitle>
+            <CardDescription>Opportunities ranked by AI-powered health score</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {deals.map((deal) => (
-                <div key={deal.id} className="flex items-center justify-between p-4 border rounded-lg">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex-1">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-12">
+                    <Checkbox />
+                  </TableHead>
+                  <TableHead>Opportunity</TableHead>
+                  <TableHead>Account</TableHead>
+                  <TableHead>Stage</TableHead>
+                  <TableHead>Est. Close Date</TableHead>
+                  <TableHead>Est. Revenue</TableHead>
+                  <TableHead>Owner</TableHead>
+                  <TableHead>Probability</TableHead>
+                  <TableHead>Health</TableHead>
+                  <TableHead className="w-12"></TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {opportunities.map((opp) => (
+                  <TableRow key={opp.id} className="hover:bg-muted/50">
+                    <TableCell>
+                      <Checkbox />
+                    </TableCell>
+                    <TableCell>
+                      <div className="font-medium">{opp.name}</div>
+                      <div className="text-sm text-muted-foreground">{opp.age} days old</div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="font-medium">{opp.accountName}</div>
+                      <div className="text-sm text-muted-foreground">{opp.region}</div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className={getStageColor(opp.stage)}>
+                        {opp.stage}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        {new Date(opp.closeDate).toLocaleDateString()}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-1 font-medium">
+                        <DollarSign className="h-3 w-3" />${opp.amount.toLocaleString()}
+                      </div>
+                    </TableCell>
+                    <TableCell>
                       <div className="flex items-center gap-2">
-                        <h3 className="font-semibold">{deal.company}</h3>
-                        <Badge
-                          variant={
-                            deal.health === "high" ? "default" : deal.health === "medium" ? "secondary" : "destructive"
-                          }
-                        >
-                          {deal.health === "high" ? "Healthy" : deal.health === "medium" ? "Watch" : "At Risk"}
-                        </Badge>
+                        <Avatar className="h-6 w-6">
+                          <AvatarFallback className="text-xs">
+                            {opp.owner
+                              .split(" ")
+                              .map((n) => n[0])
+                              .join("")}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="text-sm">{opp.owner.split(" ")[0]}</span>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                        <span className="flex items-center gap-1">
-                          <DollarSign className="h-3 w-3" />${deal.value.toLocaleString()}
-                        </span>
-                        <span>{deal.stage}</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {deal.lastActivity}
-                        </span>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium">{opp.probability}%</span>
+                        <Progress value={opp.probability} className="h-1 w-16" />
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    {/* MEDDICC Score */}
-                    <div className="text-center">
-                      <div className="text-sm font-medium">MEDDICC</div>
-                      <div className="text-xs text-muted-foreground">
-                        {Object.values(deal.meddicc).filter(Boolean).length}/6
-                      </div>
-                    </div>
-
-                    {/* Probability */}
-                    <div className="text-center min-w-[80px]">
-                      <div className="text-sm font-medium">{deal.probability}%</div>
-                      <Progress value={deal.probability} className="h-1 w-16" />
-                    </div>
-
-                    {/* Rep */}
-                    <div className="flex items-center gap-2">
-                      <Avatar className="h-8 w-8">
-                        <AvatarFallback>
-                          {deal.rep
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </AvatarFallback>
-                      </Avatar>
-                      <span className="text-sm">{deal.rep}</span>
-                    </div>
-
-                    <Button variant="outline" size="sm">
-                      View Details
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className={getHealthColor(opp.healthScore)}>
+                        {opp.healthScore}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="sm">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem>
+                            <Eye className="h-4 w-4 mr-2" />
+                            View Details
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <TrendingUp className="h-4 w-4 mr-2" />
+                            Update Stage
+                          </DropdownMenuItem>
+                          <DropdownMenuItem>
+                            <Calendar className="h-4 w-4 mr-2" />
+                            Schedule Follow-up
+                          </DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </CardContent>
         </Card>
       </div>

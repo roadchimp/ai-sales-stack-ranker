@@ -21,6 +21,7 @@ const navigation = [
     items: [
       { title: "Overview", url: "/", icon: Home },
       { title: "Pipeline", url: "/pipeline", icon: TrendingUp },
+      { title: "Opportunities", url: "/opportunities", icon: BarChart3 },
       { title: "Reps", url: "/reps", icon: Users },
       { title: "Sources", url: "/sources", icon: Database },
     ],
@@ -36,7 +37,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-2">
-          <BarChart3 className="h-6 w-6 text-blue-600" />
+          <BarChart3 className="h-6 w-6 text-primary" />
           <span className="font-bold text-lg">Stack Ranker 2.0</span>
         </div>
       </SidebarHeader>

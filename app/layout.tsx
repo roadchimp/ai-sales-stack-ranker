@@ -4,6 +4,8 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { FilterProvider } from "@/contexts/filter-context"
+import { ThemeProvider } from "@/contexts/theme-context"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,10 +23,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SidebarProvider>
-          <AppSidebar />
-          {children}
-        </SidebarProvider>
+        <ThemeProvider>
+          <FilterProvider>
+            <SidebarProvider>
+              <AppSidebar />
+              {children}
+            </SidebarProvider>
+          </FilterProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

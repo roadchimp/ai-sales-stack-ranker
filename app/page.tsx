@@ -6,26 +6,28 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { TrendingUp, TrendingDown, DollarSign, Target, Calendar } from "lucide-react"
-import { PipelineChart } from "@/components/pipeline-chart"
 import { RevenueChart } from "@/components/revenue-chart"
 import { DealHealthChart } from "@/components/deal-health-chart"
+import { PipelineFunnelChart } from "@/components/pipeline-funnel-chart"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function OverviewPage() {
   return (
     <SidebarInset>
       <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
         <SidebarTrigger className="-ml-1" />
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-1">
           <h1 className="text-xl font-semibold">Sales Analytics Overview</h1>
           <Badge variant="secondary">Live</Badge>
         </div>
+        <ThemeToggle />
       </header>
 
       <div className="flex-1 space-y-6 p-6">
         {/* Executive Summary */}
-        <Card>
+        <Card className="card-enhanced border-primary/20">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 gradient-text">
               <Target className="h-5 w-5" />
               Executive Summary
             </CardTitle>
@@ -48,21 +50,21 @@ export default function OverviewPage() {
 
         {/* Key Metrics */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Pipeline Value</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$2.3M</div>
+              <div className="text-2xl font-bold">$2.5M</div>
               <p className="text-xs text-muted-foreground">
                 <TrendingUp className="inline h-3 w-3 text-green-500" />
-                +15% from last quarter
+                +18% from last quarter
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Win Rate</CardTitle>
               <Target className="h-4 w-4 text-muted-foreground" />
@@ -76,7 +78,7 @@ export default function OverviewPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Avg Deal Size</CardTitle>
               <DollarSign className="h-4 w-4 text-muted-foreground" />
@@ -90,7 +92,7 @@ export default function OverviewPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Sales Cycle</CardTitle>
               <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -105,11 +107,11 @@ export default function OverviewPage() {
           </Card>
         </div>
 
-        {/* Charts Section */}
-        <div className="grid gap-6 md:grid-cols-2">
-          <PipelineChart />
-          <RevenueChart />
-        </div>
+        {/* Pipeline Funnel - Full Width Row */}
+        <PipelineFunnelChart />
+
+        {/* Revenue Trend - Full Width Row */}
+        <RevenueChart />
 
         {/* Deal Health and Predictions */}
         <div className="grid gap-6 md:grid-cols-3">
@@ -117,7 +119,7 @@ export default function OverviewPage() {
             <DealHealthChart />
           </div>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader>
               <CardTitle className="text-lg">AI Predictions</CardTitle>
               <CardDescription>Next 30 days forecast</CardDescription>

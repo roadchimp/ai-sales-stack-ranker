@@ -4,7 +4,7 @@ import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, AlertCircle, Clock, Database, Zap, RefreshCw } from "lucide-react"
+import { CheckCircle, AlertCircle, Clock, Database, Zap, RefreshCw, Brain, Key, Settings } from "lucide-react"
 
 const dataSources = [
   {
@@ -47,10 +47,63 @@ const dataSources = [
     id: 5,
     name: "LinkedIn Sales Navigator",
     type: "Social",
-    status: "error",
-    lastSync: "2 days ago",
-    records: 2340,
-    health: "error",
+    status: "pending",
+    lastSync: "Never",
+    records: 0,
+    health: "pending",
+  },
+  {
+    id: 6,
+    name: "Google Drive",
+    type: "Storage",
+    status: "not_connected",
+    lastSync: "Never",
+    records: 0,
+    health: "not_connected",
+  },
+  {
+    id: 7,
+    name: "Snowflake",
+    type: "Data Warehouse",
+    status: "not_connected",
+    lastSync: "Never",
+    records: 0,
+    health: "not_connected",
+  },
+]
+
+const aiIntegrations = [
+  {
+    id: 1,
+    name: "OpenAI API",
+    type: "Language Model",
+    status: "connected",
+    apiKey: "sk-...abc123",
+    usage: "2.3K requests",
+  },
+  {
+    id: 2,
+    name: "Pinecone",
+    type: "Vector Database",
+    status: "not_connected",
+    apiKey: "",
+    usage: "0 requests",
+  },
+  {
+    id: 3,
+    name: "Anthropic Claude",
+    type: "Language Model",
+    status: "not_connected",
+    apiKey: "",
+    usage: "0 requests",
+  },
+  {
+    id: 4,
+    name: "Cohere",
+    type: "Embeddings",
+    status: "not_connected",
+    apiKey: "",
+    usage: "0 requests",
   },
 ]
 
@@ -65,17 +118,17 @@ export default function SourcesPage() {
       <div className="flex-1 space-y-6 p-6">
         {/* Data Health Summary */}
         <div className="grid gap-4 md:grid-cols-4">
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Connected Sources</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">3/5</div>
+              <div className="text-2xl font-bold">3/7</div>
               <p className="text-xs text-muted-foreground">Active integrations</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Total Records</CardTitle>
             </CardHeader>
@@ -85,7 +138,7 @@ export default function SourcesPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Data Freshness</CardTitle>
             </CardHeader>
@@ -95,7 +148,7 @@ export default function SourcesPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="card-enhanced">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium">Sync Status</CardTitle>
             </CardHeader>
@@ -107,9 +160,9 @@ export default function SourcesPage() {
         </div>
 
         {/* Data Sources List */}
-        <Card>
+        <Card className="card-enhanced border-primary/20">
           <CardHeader>
-            <CardTitle>Integration Status</CardTitle>
+            <CardTitle>Data Integration Status</CardTitle>
             <CardDescription>Monitor and manage your data source connections</CardDescription>
           </CardHeader>
           <CardContent>
@@ -140,13 +193,22 @@ export default function SourcesPage() {
                           ? "default"
                           : source.status === "pending"
                             ? "secondary"
-                            : "destructive"
+                            : source.status === "not_connected"
+                              ? "outline"
+                              : "destructive"
                       }
                     >
                       {source.status === "connected" && <CheckCircle className="h-3 w-3 mr-1" />}
                       {source.status === "error" && <AlertCircle className="h-3 w-3 mr-1" />}
                       {source.status === "pending" && <Clock className="h-3 w-3 mr-1" />}
-                      {source.status.charAt(0).toUpperCase() + source.status.slice(1)}
+                      {source.status === "not_connected" && <Database className="h-3 w-3 mr-1" />}
+                      {source.status === "connected"
+                        ? "Connected"
+                        : source.status === "pending"
+                          ? "Pending"
+                          : source.status === "not_connected"
+                            ? "Not Connected"
+                            : "Error"}
                     </Badge>
 
                     {/* Action Buttons */}
@@ -157,7 +219,7 @@ export default function SourcesPage() {
                           Sync Now
                         </Button>
                       )}
-                      {source.status === "pending" && (
+                      {(source.status === "pending" || source.status === "not_connected") && (
                         <Button size="sm">
                           <Zap className="h-3 w-3 mr-1" />
                           Connect
@@ -170,6 +232,71 @@ export default function SourcesPage() {
                         </Button>
                       )}
                       <Button variant="ghost" size="sm">
+                        <Settings className="h-3 w-3 mr-1" />
+                        Configure
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* AI Integrations Section */}
+        <Card className="card-enhanced border-primary/20">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Brain className="h-5 w-5" />
+              AI Integrations
+            </CardTitle>
+            <CardDescription>Manage your AI and machine learning service connections</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {aiIntegrations.map((integration) => (
+                <div key={integration.id} className="flex items-center justify-between p-4 border rounded-lg">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-purple-100">
+                      <Brain className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{integration.name}</h3>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <span>{integration.type}</span>
+                        <span>•</span>
+                        <span>{integration.usage}</span>
+                        {integration.status === "connected" && (
+                          <>
+                            <span>•</span>
+                            <span className="font-mono text-xs">API Key: {integration.apiKey}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-3">
+                    {/* Status Badge */}
+                    <Badge variant={integration.status === "connected" ? "default" : "outline"}>
+                      {integration.status === "connected" ? (
+                        <CheckCircle className="h-3 w-3 mr-1" />
+                      ) : (
+                        <Key className="h-3 w-3 mr-1" />
+                      )}
+                      {integration.status === "connected" ? "Connected" : "Not Connected"}
+                    </Badge>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-2">
+                      {integration.status === "not_connected" && (
+                        <Button size="sm">
+                          <Key className="h-3 w-3 mr-1" />
+                          Add API Key
+                        </Button>
+                      )}
+                      <Button variant="ghost" size="sm">
+                        <Settings className="h-3 w-3 mr-1" />
                         Configure
                       </Button>
                     </div>
@@ -181,20 +308,20 @@ export default function SourcesPage() {
         </Card>
 
         {/* Add New Source */}
-        <Card>
+        <Card className="card-enhanced">
           <CardHeader>
-            <CardTitle>Add New Data Source</CardTitle>
+            <CardTitle>Add New Integration</CardTitle>
             <CardDescription>Connect additional platforms to enhance your analytics</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
               <Button variant="outline" className="h-20 flex-col">
                 <Database className="h-6 w-6 mb-2" />
-                <span>CRM Platform</span>
+                <span>Data Source</span>
               </Button>
               <Button variant="outline" className="h-20 flex-col">
-                <Zap className="h-6 w-6 mb-2" />
-                <span>Communication Tool</span>
+                <Brain className="h-6 w-6 mb-2" />
+                <span>AI Service</span>
               </Button>
               <Button variant="outline" className="h-20 flex-col">
                 <RefreshCw className="h-6 w-6 mb-2" />
