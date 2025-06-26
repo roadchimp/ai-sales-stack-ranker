@@ -1,0 +1,101 @@
+OpportunityID,Industry,CompanySize,AnnualRevenue,DataVolume,DataMaturityLevel,CloudAdoption,ComplianceRequirements,PreviousDataGovernanceTools,DataBreachHistory,RegulatoryPressure
+1,Technology,SMB (50-500),3712,36,Intermediate,AWS,Multiple,True,False,8
+2,Telecommunications,Mid-Market (500-5000),4449,20,Advanced,On-Premise,SOX,False,True,3
+3,Government,Enterprise (5000+),4735,26,Intermediate,AWS,Multiple,False,True,7
+4,Technology,Enterprise (5000+),1955,48,Basic,GCP,GDPR,False,False,7
+5,Government,Enterprise (5000+),3750,73,Basic,AWS,GDPR,True,False,9
+6,Technology,Enterprise (5000+),2816,48,Intermediate,GCP,CCPA,False,False,10
+7,Education,SMB (50-500),1159,46,Advanced,GCP,CCPA,True,True,9
+8,Manufacturing,Mid-Market (500-5000),1830,25,Advanced,On-Premise,GDPR,False,False,3
+9,Manufacturing,SMB (50-500),2695,24,Advanced,GCP,SOX,True,False,7
+10,Technology,Enterprise (5000+),1417,52,Advanced,Azure,CCPA,False,False,2
+11,Retail,Enterprise (5000+),880,72,Advanced,Multi-Cloud,HIPAA,False,True,8
+12,Manufacturing,Mid-Market (500-5000),4586,42,Basic,On-Premise,HIPAA,False,False,5
+13,Retail,SMB (50-500),1600,40,Advanced,On-Premise,GDPR,True,True,8
+14,Telecommunications,SMB (50-500),394,26,Advanced,GCP,Multiple,True,False,1
+15,Healthcare,Mid-Market (500-5000),1731,51,Intermediate,AWS,HIPAA,False,False,2
+16,Government,Mid-Market (500-5000),1667,14,Basic,Azure,HIPAA,True,False,8
+17,Healthcare,SMB (50-500),3501,58,Intermediate,AWS,GDPR,False,True,2
+18,Manufacturing,SMB (50-500),298,100,Intermediate,Azure,SOX,False,True,10
+19,Telecommunications,Enterprise (5000+),502,78,Advanced,Azure,SOX,True,False,6
+20,Technology,SMB (50-500),4222,68,Advanced,GCP,SOX,True,True,6
+21,Education,Mid-Market (500-5000),488,42,Advanced,On-Premise,SOX,False,False,5
+22,Manufacturing,SMB (50-500),1142,64,Advanced,GCP,Multiple,False,False,9
+23,Government,Enterprise (5000+),4829,55,Intermediate,GCP,Multiple,False,True,9
+24,Technology,Mid-Market (500-5000),982,11,Advanced,Multi-Cloud,HIPAA,True,True,1
+25,Financial Services,SMB (50-500),1287,40,Intermediate,Azure,Multiple,True,True,4
+26,Technology,Enterprise (5000+),958,42,Intermediate,AWS,CCPA,True,False,6
+27,Telecommunications,SMB (50-500),4284,27,Advanced,Multi-Cloud,Multiple,True,True,5
+28,Manufacturing,Mid-Market (500-5000),4268,68,Advanced,Multi-Cloud,SOX,False,True,8
+29,Retail,Mid-Market (500-5000),3688,82,Intermediate,GCP,SOX,True,True,3
+30,Government,Enterprise (5000+),1383,48,Intermediate,Azure,GDPR,True,True,9
+31,Healthcare,Enterprise (5000+),1105,25,Basic,Azure,CCPA,True,True,5
+32,Healthcare,SMB (50-500),3099,95,Basic,AWS,Multiple,True,False,5
+33,Telecommunications,SMB (50-500),1680,92,Advanced,Multi-Cloud,HIPAA,True,True,8
+34,Education,Enterprise (5000+),723,86,Intermediate,Azure,CCPA,False,False,8
+35,Government,Mid-Market (500-5000),2985,72,Advanced,GCP,SOX,True,False,3
+36,Financial Services,Mid-Market (500-5000),1176,80,Basic,On-Premise,SOX,False,True,2
+37,Education,SMB (50-500),4510,24,Advanced,Multi-Cloud,GDPR,False,True,2
+38,Telecommunications,Enterprise (5000+),1771,26,Intermediate,Azure,Multiple,True,True,6
+39,Technology,SMB (50-500),1281,74,Advanced,On-Premise,CCPA,False,True,2
+40,Education,Mid-Market (500-5000),4803,10,Advanced,GCP,CCPA,True,True,3
+41,Government,Enterprise (5000+),2989,90,Basic,On-Premise,Multiple,True,False,9
+42,Manufacturing,Mid-Market (500-5000),3433,16,Intermediate,Multi-Cloud,SOX,True,True,7
+43,Manufacturing,SMB (50-500),170,74,Intermediate,GCP,HIPAA,False,True,3
+44,Telecommunications,Enterprise (5000+),4779,57,Basic,Azure,Multiple,True,False,2
+45,Technology,SMB (50-500),2722,32,Advanced,On-Premise,SOX,False,True,4
+46,Telecommunications,Enterprise (5000+),2687,18,Advanced,On-Premise,Multiple,True,True,3
+47,Financial Services,Enterprise (5000+),817,18,Intermediate,Multi-Cloud,GDPR,True,True,1
+48,Financial Services,Mid-Market (500-5000),4550,63,Advanced,Multi-Cloud,Multiple,False,False,4
+49,Government,Enterprise (5000+),4223,46,Basic,Azure,Multiple,False,True,1
+50,Retail,SMB (50-500),2288,39,Basic,Multi-Cloud,GDPR,False,True,8
+51,Healthcare,Mid-Market (500-5000),1345,27,Advanced,On-Premise,GDPR,True,True,10
+52,Technology,Enterprise (5000+),4817,96,Intermediate,AWS,GDPR,False,True,8
+53,Manufacturing,Enterprise (5000+),4199,25,Basic,On-Premise,CCPA,True,False,8
+54,Healthcare,SMB (50-500),4871,64,Basic,On-Premise,GDPR,True,False,1
+55,Technology,Enterprise (5000+),1253,15,Basic,Azure,GDPR,False,False,8
+56,Technology,SMB (50-500),953,78,Advanced,AWS,GDPR,True,False,7
+57,Healthcare,SMB (50-500),1490,6,Basic,On-Premise,GDPR,False,True,6
+58,Telecommunications,SMB (50-500),1631,80,Advanced,Azure,GDPR,False,True,7
+59,Education,Mid-Market (500-5000),1717,69,Basic,Azure,SOX,False,True,3
+60,Manufacturing,SMB (50-500),832,12,Intermediate,AWS,Multiple,False,True,6
+61,Financial Services,Enterprise (5000+),2685,18,Basic,On-Premise,HIPAA,False,True,1
+62,Retail,Enterprise (5000+),3014,45,Advanced,Multi-Cloud,GDPR,True,True,10
+63,Government,SMB (50-500),4789,64,Basic,AWS,CCPA,False,True,3
+64,Manufacturing,SMB (50-500),3482,46,Advanced,GCP,Multiple,False,False,5
+65,Technology,SMB (50-500),231,34,Basic,Azure,GDPR,True,False,1
+66,Education,SMB (50-500),2974,79,Basic,Multi-Cloud,CCPA,False,False,1
+67,Technology,Enterprise (5000+),513,57,Advanced,AWS,SOX,False,True,7
+68,Retail,SMB (50-500),1046,37,Advanced,AWS,HIPAA,False,False,3
+69,Financial Services,SMB (50-500),2348,5,Basic,AWS,GDPR,True,False,7
+70,Telecommunications,Enterprise (5000+),3708,48,Intermediate,GCP,Multiple,True,False,8
+71,Government,Mid-Market (500-5000),2345,55,Basic,Azure,HIPAA,False,True,3
+72,Manufacturing,Mid-Market (500-5000),3566,1,Basic,AWS,Multiple,True,True,9
+73,Healthcare,SMB (50-500),1707,4,Advanced,Multi-Cloud,Multiple,True,True,8
+74,Education,Mid-Market (500-5000),747,63,Basic,Multi-Cloud,Multiple,True,True,9
+75,Healthcare,Enterprise (5000+),3010,58,Basic,Azure,Multiple,True,True,6
+76,Financial Services,Mid-Market (500-5000),701,26,Advanced,AWS,SOX,False,True,4
+77,Financial Services,Mid-Market (500-5000),1887,43,Basic,AWS,HIPAA,False,False,8
+78,Manufacturing,SMB (50-500),3291,23,Basic,Azure,GDPR,True,False,3
+79,Government,Enterprise (5000+),4336,87,Intermediate,Multi-Cloud,SOX,False,False,8
+80,Financial Services,SMB (50-500),997,72,Basic,GCP,CCPA,True,False,3
+81,Telecommunications,Mid-Market (500-5000),3593,51,Intermediate,Azure,GDPR,False,True,9
+82,Retail,SMB (50-500),3901,3,Basic,AWS,HIPAA,False,False,7
+83,Healthcare,Mid-Market (500-5000),2716,81,Advanced,AWS,GDPR,True,True,8
+84,Telecommunications,Enterprise (5000+),3838,16,Intermediate,AWS,GDPR,False,True,9
+85,Healthcare,Enterprise (5000+),4621,97,Advanced,GCP,Multiple,True,False,4
+86,Healthcare,Mid-Market (500-5000),1420,6,Intermediate,On-Premise,Multiple,True,False,10
+87,Telecommunications,Mid-Market (500-5000),4975,68,Intermediate,Azure,GDPR,True,False,10
+88,Telecommunications,Enterprise (5000+),995,54,Intermediate,On-Premise,Multiple,False,True,7
+89,Education,SMB (50-500),1226,28,Intermediate,GCP,GDPR,False,False,10
+90,Manufacturing,SMB (50-500),1921,23,Intermediate,Multi-Cloud,CCPA,True,False,10
+91,Healthcare,Enterprise (5000+),3664,2,Basic,GCP,CCPA,False,True,1
+92,Retail,Mid-Market (500-5000),427,66,Intermediate,On-Premise,CCPA,True,True,7
+93,Financial Services,SMB (50-500),234,81,Advanced,GCP,GDPR,True,True,6
+94,Telecommunications,SMB (50-500),927,11,Intermediate,AWS,Multiple,False,True,2
+95,Education,Mid-Market (500-5000),2501,69,Basic,Azure,GDPR,False,False,9
+96,Retail,Enterprise (5000+),3617,65,Intermediate,Multi-Cloud,GDPR,True,True,1
+97,Manufacturing,Enterprise (5000+),393,54,Intermediate,GCP,SOX,True,True,4
+98,Education,Enterprise (5000+),707,39,Advanced,Multi-Cloud,GDPR,True,True,9
+99,Telecommunications,Enterprise (5000+),4846,35,Basic,On-Premise,SOX,True,False,7
+100,Telecommunications,Enterprise (5000+),419,35,Basic,On-Premise,HIPAA,True,True,5
