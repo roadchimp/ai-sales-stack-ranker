@@ -10,10 +10,11 @@ import { Input } from "@/components/ui/input"
 import { FilterBar } from "@/components/filter-bar"
 import { useFilters } from "@/contexts/filter-context"
 import { sampleOpportunities } from "@/lib/sample-data"
-import { DollarSign, Calendar, TrendingUp, Search, Eye } from "lucide-react"
+import { DollarSign, Calendar, Search, Eye, Brain } from "lucide-react"
 import { useMemo, useState } from "react"
+import Link from "next/link"
 
-export default function OpportunitiesPage() {
+export default function PredictiveAnalyticsPage() {
   const { filters } = useFilters()
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -51,6 +52,13 @@ export default function OpportunitiesPage() {
   const avgPredictionScore =
     filteredOpportunities.reduce((sum, opp) => sum + opp.predictionScore, 0) / filteredOpportunities.length || 0
 
+  const formatValue = (value: number) => {
+    if (value >= 1000000) {
+      return `$${(value / 1000000).toFixed(1)}M`
+    }
+    return `$${(value / 1000).toFixed(0)}K`
+  }
+
   const getHealthColor = (health: string) => {
     switch (health) {
       case "high":
@@ -74,7 +82,10 @@ export default function OpportunitiesPage() {
     <SidebarInset>
       <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
         <SidebarTrigger className="-ml-1" />
-        <h1 className="text-xl font-semibold">Opportunities</h1>
+        <div className="flex items-center gap-2">
+          <Brain className="h-5 w-5 text-primary" />
+          <h1 className="text-xl font-semibold">Predictive Analytics</h1>
+        </div>
       </header>
 
       <div className="flex-1 space-y-6 p-6">
@@ -97,7 +108,7 @@ export default function OpportunitiesPage() {
               <CardTitle className="text-sm font-medium">Total Value</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">${(totalValue / 1000).toFixed(0)}K</div>
+              <div className="text-2xl font-bold">{formatValue(totalValue)}</div>
               <p className="text-xs text-muted-foreground">Pipeline value</p>
             </CardContent>
           </Card>
@@ -139,9 +150,12 @@ export default function OpportunitiesPage() {
         {/* Opportunities List */}
         <Card className="card-enhanced border-primary/20">
           <CardHeader>
-            <CardTitle>Opportunity Pipeline</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Brain className="h-5 w-5" />
+              Predictive Analytics
+            </CardTitle>
             <CardDescription>
-              {filteredOpportunities.length} opportunities • ${(totalValue / 1000).toFixed(0)}K total value
+              {filteredOpportunities.length} opportunities • {formatValue(totalValue)} total value • AI-powered insights
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -175,7 +189,7 @@ export default function OpportunitiesPage() {
                     {/* AI Prediction Score */}
                     <div className="text-center min-w-[100px]">
                       <div className="flex items-center gap-2">
-                        <TrendingUp className="h-4 w-4" />
+                        <Brain className="h-4 w-4" />
                         <span className="text-sm font-medium">AI Score</span>
                       </div>
                       <div className={`text-lg font-bold ${getPredictionColor(opp.predictionScore)}`}>
@@ -200,9 +214,11 @@ export default function OpportunitiesPage() {
                       </div>
                     </div>
 
-                    <Button variant="outline" size="sm">
-                      <Eye className="h-3 w-3 mr-1" />
-                      View
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href={`/opportunities/${opp.id}`}>
+                        <Eye className="h-3 w-3 mr-1" />
+                        View
+                      </Link>
                     </Button>
                   </div>
                 </div>

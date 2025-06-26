@@ -36,7 +36,7 @@ export default function OverviewPage() {
           <CardContent>
             <div className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                <strong>Pipeline Health:</strong> Your Q4 pipeline is tracking 15% above target with $2.3M in qualified
+                <strong>Pipeline Health:</strong> Your Q4 pipeline is tracking 15% above target with $3.7M in qualified
                 opportunities. The Enterprise segment shows strong momentum with 3 deals in final stages. However, 2
                 high-value deals in the SMB segment require immediate attention due to extended decision cycles.
               </p>
@@ -56,7 +56,7 @@ export default function OverviewPage() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$2.5M</div>
+              <div className="text-2xl font-bold">$3.7M</div>
               <p className="text-xs text-muted-foreground">
                 <TrendingUp className="inline h-3 w-3 text-green-500" />
                 +18% from last quarter
@@ -84,10 +84,10 @@ export default function OverviewPage() {
               <DollarSign className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$45K</div>
+              <div className="text-2xl font-bold">$109K</div>
               <p className="text-xs text-muted-foreground">
-                <TrendingDown className="inline h-3 w-3 text-red-500" />
-                -8% from last quarter
+                <TrendingUp className="inline h-3 w-3 text-green-500" />
+                +12% from last quarter
               </p>
             </CardContent>
           </Card>

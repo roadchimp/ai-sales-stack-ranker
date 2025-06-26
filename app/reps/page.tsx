@@ -7,11 +7,11 @@ import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { FilterBar } from "@/components/filter-bar"
 import { useFilters } from "@/contexts/filter-context"
-import { sampleRepMetrics, sampleOpportunities, stages } from "@/lib/sample-data"
-import { TrendingUp, TrendingDown, Phone, Calendar, Target } from "lucide-react"
+import { sampleRepMetrics } from "@/lib/sample-data"
+import { TrendingUp, TrendingDown, Phone, Calendar, Target, Trophy, AlertTriangle, BarChart3 } from "lucide-react"
 import { useMemo } from "react"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid } from "recharts"
 
 export default function RepsPage() {
   const { filters } = useFilters()
@@ -28,25 +28,14 @@ export default function RepsPage() {
     })
   }, [filters])
 
-  // Calculate pipeline distribution by rep and stage
-  const pipelineByRepAndStage = useMemo(() => {
-    return filteredReps.map((rep) => {
-      const repOpps = sampleOpportunities.filter((opp) => opp.owner === rep.name)
-      const stageData = stages.reduce(
-        (acc, stage) => {
-          const stageOpps = repOpps.filter((opp) => opp.stage === stage)
-          const stageValue = stageOpps.reduce((sum, opp) => sum + opp.amount, 0)
-          acc[stage] = stageValue / 1000 // Convert to K
-          return acc
-        },
-        {} as Record<string, number>,
-      )
-
-      return {
-        rep: rep.name.split(" ")[0], // First name only for chart
-        ...stageData,
-      }
-    })
+  // Calculate pipeline distribution by rep using the actual pipelineValue from sampleRepMetrics
+  const pipelineByRep = useMemo(() => {
+    return filteredReps.map((rep) => ({
+      rep: rep.name.split(" ")[0], // First name only for chart
+      value: rep.pipelineValue / 1000, // Convert to K - use actual pipelineValue
+      fullName: rep.name,
+      opportunities: rep.opportunities,
+    }))
   }, [filteredReps])
 
   const totalQuota = filteredReps.reduce((sum, rep) => sum + rep.quota, 0)
@@ -108,33 +97,53 @@ export default function RepsPage() {
           </Card>
         </div>
 
-        {/* Pipeline Distribution Chart */}
+        {/* Pipeline Distribution Chart - Using actual pipeline values */}
         <Card className="card-enhanced border-primary/20">
           <CardHeader>
-            <CardTitle>Pipeline Distribution by Rep</CardTitle>
-            <CardDescription>Pipeline value ($K) across different stages</CardDescription>
+            <CardTitle className="flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Pipeline Distribution by Rep
+            </CardTitle>
+            <CardDescription>Pipeline value ($K) by sales representative</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer
               config={{
-                Prospecting: { label: "Prospecting", color: "hsl(var(--chart-1))" },
-                Qualification: { label: "Qualification", color: "hsl(var(--chart-2))" },
-                "Needs Analysis": { label: "Needs Analysis", color: "hsl(var(--chart-3))" },
-                Proposal: { label: "Proposal", color: "hsl(var(--chart-4))" },
-                Negotiation: { label: "Negotiation", color: "hsl(var(--chart-5))" },
+                value: {
+                  label: "Pipeline Value ($K)",
+                  color: "hsl(var(--chart-1))",
+                },
               }}
               className="h-[400px]"
             >
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={pipelineByRepAndStage}>
-                  <XAxis dataKey="rep" />
-                  <YAxis />
+                <BarChart
+                  data={pipelineByRep}
+                  margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                  barCategoryGap="20%"
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis
+                    dataKey="rep"
+                    stroke="hsl(var(--muted-foreground))"
+                    fontSize={12}
+                    angle={-45}
+                    textAnchor="end"
+                    height={60}
+                  />
+                  <YAxis
+                    stroke="hsl(var(--muted-foreground))"
+                    fontSize={12}
+                    label={{ value: "Pipeline Value ($K)", angle: -90, position: "insideLeft" }}
+                  />
                   <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="Prospecting" stackId="a" fill="var(--color-Prospecting)" />
-                  <Bar dataKey="Qualification" stackId="a" fill="var(--color-Qualification)" />
-                  <Bar dataKey="Needs Analysis" stackId="a" fill="var(--color-Needs Analysis)" />
-                  <Bar dataKey="Proposal" stackId="a" fill="var(--color-Proposal)" />
-                  <Bar dataKey="Negotiation" stackId="a" fill="var(--color-Negotiation)" />
+                  <Bar
+                    dataKey="value"
+                    fill="var(--color-value)"
+                    radius={[4, 4, 0, 0]}
+                    stroke="hsl(var(--border))"
+                    strokeWidth={1}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -167,12 +176,12 @@ export default function RepsPage() {
                   <div className="flex items-center gap-2">
                     <Badge
                       variant={
-                        rep.quotaAttainment >= 80 ? "default" : rep.quotaAttainment >= 60 ? "secondary" : "destructive"
+                        rep.quotaAttainment >= 100 ? "default" : rep.quotaAttainment >= 80 ? "secondary" : "destructive"
                       }
                     >
-                      {rep.quotaAttainment >= 80 ? "Exceeding" : rep.quotaAttainment >= 60 ? "On Track" : "Behind"}
+                      {rep.quotaAttainment >= 100 ? "Exceeding" : rep.quotaAttainment >= 80 ? "On Track" : "Behind"}
                     </Badge>
-                    {rep.quotaAttainment >= 70 ? (
+                    {rep.quotaAttainment >= 80 ? (
                       <TrendingUp className="h-4 w-4 text-green-500" />
                     ) : (
                       <TrendingDown className="h-4 w-4 text-red-500" />
@@ -246,13 +255,19 @@ export default function RepsPage() {
 
                   {/* Performance Indicator */}
                   <div className="text-center">
-                    <div className="text-2xl font-bold">
-                      {rep.quotaAttainment >= 80 ? "🏆" : rep.quotaAttainment >= 60 ? "📈" : "⚠️"}
+                    <div className="text-2xl mb-1">
+                      {rep.quotaAttainment >= 100 ? (
+                        <Trophy className="h-8 w-8 text-yellow-500 mx-auto" />
+                      ) : rep.quotaAttainment >= 80 ? (
+                        <TrendingUp className="h-8 w-8 text-green-500 mx-auto" />
+                      ) : (
+                        <AlertTriangle className="h-8 w-8 text-red-500 mx-auto" />
+                      )}
                     </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      {rep.quotaAttainment >= 80
+                    <div className="text-xs text-muted-foreground">
+                      {rep.quotaAttainment >= 100
                         ? "Top Performer"
-                        : rep.quotaAttainment >= 60
+                        : rep.quotaAttainment >= 80
                           ? "Good Progress"
                           : "Needs Focus"}
                     </div>

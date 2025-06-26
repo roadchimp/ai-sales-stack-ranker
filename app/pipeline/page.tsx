@@ -47,6 +47,15 @@ const getStageColor = (stage: string) => {
   }
 }
 
+const getProbabilityColor = (score: number) => {
+  if (score >= 80) return "text-green-600"
+  if (score >= 60) return "text-yellow-600"
+  return "text-red-600"
+}
+
+// Calculate total pipeline value
+const totalPipelineValue = opportunities.reduce((sum, opp) => sum + opp.amount, 0)
+
 export default function PipelinePage() {
   return (
     <SidebarInset>
@@ -63,7 +72,7 @@ export default function PipelinePage() {
               <CardTitle className="text-sm font-medium">Total Pipeline</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$2.5M</div>
+              <div className="text-2xl font-bold">${(totalPipelineValue / 1000000).toFixed(1)}M</div>
               <p className="text-xs text-muted-foreground">34 active opportunities</p>
             </CardContent>
           </Card>
@@ -73,7 +82,7 @@ export default function PipelinePage() {
               <CardTitle className="text-sm font-medium">Weighted Pipeline</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$1.8M</div>
+              <div className="text-2xl font-bold">$2.1M</div>
               <p className="text-xs text-muted-foreground">Probability adjusted</p>
             </CardContent>
           </Card>
@@ -83,7 +92,7 @@ export default function PipelinePage() {
               <CardTitle className="text-sm font-medium">This Quarter</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$1.2M</div>
+              <div className="text-2xl font-bold">$1.4M</div>
               <p className="text-xs text-muted-foreground">Expected to close</p>
             </CardContent>
           </Card>
@@ -128,7 +137,7 @@ export default function PipelinePage() {
               </TableHeader>
               <TableBody>
                 {opportunities.map((opp) => (
-                  <TableRow key={opp.id} className="hover:bg-muted/50">
+                  <TableRow key={opp.id} className="hover:bg-muted/50" data-opportunity-id={opp.id}>
                     <TableCell>
                       <Checkbox />
                     </TableCell>
@@ -171,8 +180,10 @@ export default function PipelinePage() {
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium">{opp.probability}%</span>
-                        <Progress value={opp.probability} className="h-1 w-16" />
+                        <span className={`text-sm font-medium ${getProbabilityColor(opp.predictionScore)}`}>
+                          {opp.predictionScore}%
+                        </span>
+                        <Progress value={opp.predictionScore} className="h-2 w-16" />
                       </div>
                     </TableCell>
                     <TableCell>

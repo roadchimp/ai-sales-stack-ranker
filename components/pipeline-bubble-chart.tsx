@@ -13,6 +13,7 @@ const bubbleData = sampleOpportunities.map((opp) => ({
   name: opp.name,
   account: opp.accountName,
   stage: opp.stage,
+  id: opp.id,
 }))
 
 const formatDate = (timestamp: number) => {
@@ -30,10 +31,40 @@ const CustomTooltip = ({ active, payload }: any) => {
         <p className="text-sm">Value: ${(data.z / 1000).toFixed(0)}K</p>
         <p className="text-sm">Probability: {data.y}%</p>
         <p className="text-sm">Close Date: {formatDate(data.x)}</p>
+        <p className="text-xs text-muted-foreground mt-1">Click to view in table</p>
       </div>
     )
   }
   return null
+}
+
+const CustomScatter = (props: any) => {
+  const { payload } = props
+  if (!payload) return null // guard ✅
+
+  const handleClick = () => {
+    // Scroll to the corresponding table row
+    const tableRow = document.querySelector(`[data-opportunity-id="${payload.id}"]`)
+    if (tableRow) {
+      tableRow.scrollIntoView({ behavior: "smooth", block: "center" })
+      tableRow.classList.add("bg-primary/10")
+      setTimeout(() => tableRow.classList.remove("bg-primary/10"), 2000)
+    }
+  }
+
+  return (
+    <circle
+      cx={props.cx}
+      cy={props.cy}
+      r={Math.max(Math.sqrt(payload.z / 10000), 4)} // Size based on deal value
+      fill="hsl(var(--chart-1))"
+      fillOpacity={0.6}
+      stroke="hsl(var(--chart-1))"
+      strokeWidth={2}
+      className="cursor-pointer hover:fill-opacity-80 transition-all"
+      onClick={handleClick}
+    />
+  )
 }
 
 export function PipelineBubbleChart() {
@@ -41,7 +72,9 @@ export function PipelineBubbleChart() {
     <Card className="card-enhanced border-primary/20">
       <CardHeader>
         <CardTitle>Opportunity Timeline</CardTitle>
-        <CardDescription>Deal probability vs expected close date (bubble size = deal value)</CardDescription>
+        <CardDescription>
+          Deal probability vs expected close date (bubble size = deal value) • Click to view in table
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -66,17 +99,14 @@ export function PipelineBubbleChart() {
               <YAxis
                 type="number"
                 dataKey="y"
-                domain={[40, 90]}
+                domain={[20, 100]}
                 label={{ value: "Probability (%)", angle: -90, position: "insideLeft" }}
                 stroke="hsl(var(--muted-foreground))"
               />
               <ChartTooltip content={<CustomTooltip />} />
               <Scatter
                 dataKey="y"
-                fill="hsl(var(--chart-1))"
-                fillOpacity={0.6}
-                stroke="hsl(var(--chart-1))"
-                strokeWidth={2}
+                shape={(props) => <CustomScatter {...props} />} // <-- render-function
               />
             </ScatterChart>
           </ResponsiveContainer>

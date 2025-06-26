@@ -657,11 +657,11 @@ export const sampleRepMetrics: RepMetrics[] = [
     avgCallDuration: 25,
     opportunities: 8,
     pipelineValue: 598000, // Sum of Sarah's opportunities
-    closedWon: 680000,
+    closedWon: 840000, // Increased to make quota attainment over 100%
     winRate: 75,
     avgDealSize: 75000,
     quota: 800000,
-    quotaAttainment: 85,
+    quotaAttainment: 105, // Changed to 105% to match "exceeding" status
   },
   {
     name: "Mike Chen",

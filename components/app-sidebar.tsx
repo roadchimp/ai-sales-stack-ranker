@@ -1,6 +1,6 @@
 "use client"
 
-import { BarChart3, Users, TrendingUp, Database, Settings, Home } from "lucide-react"
+import { BarChart3, Users, TrendingUp, Database, Settings, Home, Brain } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +21,7 @@ const navigation = [
     items: [
       { title: "Overview", url: "/", icon: Home },
       { title: "Pipeline", url: "/pipeline", icon: TrendingUp },
-      { title: "Opportunities", url: "/opportunities", icon: BarChart3 },
+      { title: "Predictive Analytics", url: "/opportunities", icon: Brain },
       { title: "Reps", url: "/reps", icon: Users },
       { title: "Sources", url: "/sources", icon: Database },
     ],
