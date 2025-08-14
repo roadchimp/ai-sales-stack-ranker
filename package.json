@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "prisma generate && next build",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
+    "postinstall": "prisma generate",
     "db:seed": "node prisma/sample-data-seed.js",
     "db:seed:js": "node prisma/sample-data-seed.js",
     "db:reset": "npx prisma migrate reset --force && npm run db:seed",
