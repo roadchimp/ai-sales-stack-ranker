@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+#temp files
+/temp_files
+
 # next.js
 /.next/
 /out/
@@ -26,5 +29,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#temp files
-/temp_files
