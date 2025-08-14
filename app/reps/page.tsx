@@ -7,17 +7,39 @@ import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { FilterBar } from "@/components/filter-bar"
 import { useFilters } from "@/contexts/filter-context"
-import { sampleRepMetrics } from "@/lib/sample-data"
+import { getRepMetrics, type RepMetricsRecord } from "@/lib/api-client"
 import { TrendingUp, TrendingDown, Phone, Calendar, Target, Trophy, AlertTriangle, BarChart3 } from "lucide-react"
-import { useMemo } from "react"
+import { useMemo, useState, useEffect } from "react"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid } from "recharts"
 
 export default function RepsPage() {
   const { filters } = useFilters()
+  const [repMetrics, setRepMetrics] = useState<RepMetricsRecord[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const loadRepMetrics = async () => {
+      try {
+        setLoading(true)
+        const data = await getRepMetrics()
+        setRepMetrics(data)
+        setError(null)
+      } catch (err) {
+        console.error('Failed to load rep metrics:', err)
+        setError('Failed to load rep metrics')
+        setRepMetrics([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadRepMetrics()
+  }, [])
 
   const filteredReps = useMemo(() => {
-    return sampleRepMetrics.filter((rep) => {
+    return repMetrics.filter((rep) => {
       if (filters.selectedReps.length > 0 && !filters.selectedReps.includes(rep.name)) {
         return false
       }
@@ -26,7 +48,7 @@ export default function RepsPage() {
       }
       return true
     })
-  }, [filters])
+  }, [repMetrics, filters])
 
   // Calculate pipeline distribution by rep using the actual pipelineValue from sampleRepMetrics
   const pipelineByRep = useMemo(() => {

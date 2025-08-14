@@ -11,9 +11,8 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { PipelineBubbleChart } from "@/components/pipeline-bubble-chart"
 import { DollarSign, Calendar, TrendingUp, Eye, MoreHorizontal } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { sampleOpportunities } from "@/lib/sample-data"
-
-const opportunities = sampleOpportunities
+import { getOpportunities, type OpportunityRecord } from "@/lib/api-client"
+import { useState, useEffect } from "react"
 
 const getHealthColor = (health: string) => {
   switch (health) {
@@ -53,10 +52,26 @@ const getProbabilityColor = (score: number) => {
   return "text-red-600"
 }
 
-// Calculate total pipeline value
-const totalPipelineValue = opportunities.reduce((sum, opp) => sum + opp.amount, 0)
-
 export default function PipelinePage() {
+  const [opportunities, setOpportunities] = useState<OpportunityRecord[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const loadOpportunities = async () => {
+      try {
+        const data = await getOpportunities()
+        setOpportunities(data)
+      } catch (error) {
+        console.error('Failed to load opportunities:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadOpportunities()
+  }, [])
+
+  // Calculate total pipeline value
+  const totalPipelineValue = opportunities.reduce((sum, opp) => sum + opp.amount, 0)
   return (
     <SidebarInset>
       <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">

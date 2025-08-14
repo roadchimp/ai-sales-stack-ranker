@@ -9,28 +9,50 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 import { FilterBar } from "@/components/filter-bar"
 import { useFilters } from "@/contexts/filter-context"
-import { sampleOpportunities } from "@/lib/sample-data"
+import { getOpportunities, type OpportunityRecord } from "@/lib/api-client"
 import { DollarSign, Calendar, Search, Eye, Brain } from "lucide-react"
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 import Link from "next/link"
 
 export default function PredictiveAnalyticsPage() {
   const { filters } = useFilters()
   const [searchTerm, setSearchTerm] = useState("")
+  const [opportunities, setOpportunities] = useState<OpportunityRecord[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const loadOpportunities = async () => {
+      try {
+        setLoading(true)
+        const data = await getOpportunities()
+        setOpportunities(data)
+        setError(null)
+      } catch (err) {
+        console.error('Failed to load opportunities:', err)
+        setError('Failed to load opportunities')
+        setOpportunities([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadOpportunities()
+  }, [])
 
   const filteredOpportunities = useMemo(() => {
-    return sampleOpportunities.filter((opp) => {
-      // Stage filter
+    return opportunities.filter((opp) => {
+      // Stage filter - show ALL if none selected, otherwise show only selected stages
       if (filters.selectedStages.length > 0 && !filters.selectedStages.includes(opp.stage)) {
         return false
       }
 
-      // Rep filter
+      // Rep filter - show ALL if none selected, otherwise show only selected reps
       if (filters.selectedReps.length > 0 && !filters.selectedReps.includes(opp.owner)) {
         return false
       }
 
-      // Region filter
+      // Region filter - show ALL if none selected, otherwise show only selected regions
       if (filters.selectedRegions.length > 0 && !filters.selectedRegions.includes(opp.region)) {
         return false
       }
@@ -46,7 +68,7 @@ export default function PredictiveAnalyticsPage() {
 
       return true
     })
-  }, [filters, searchTerm])
+  }, [opportunities, filters, searchTerm])
 
   const totalValue = filteredOpportunities.reduce((sum, opp) => sum + opp.amount, 0)
   const avgPredictionScore =
@@ -159,8 +181,34 @@ export default function PredictiveAnalyticsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {filteredOpportunities.map((opp) => (
+            {loading ? (
+              <div className="flex items-center justify-center p-8">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                  <p className="text-sm text-muted-foreground mt-2">Loading opportunities...</p>
+                </div>
+              </div>
+            ) : error ? (
+              <div className="flex items-center justify-center p-8">
+                <div className="text-center">
+                  <p className="text-sm text-red-600">{error}</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="mt-2"
+                    onClick={() => window.location.reload()}
+                  >
+                    Retry
+                  </Button>
+                </div>
+              </div>
+            ) : filteredOpportunities.length === 0 ? (
+              <div className="flex items-center justify-center p-8">
+                <p className="text-sm text-muted-foreground">No opportunities found matching your filters.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {filteredOpportunities.map((opp) => (
                 <div key={opp.id} className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50">
                   <div className="flex items-center space-x-4 flex-1">
                     <div className="flex-1">
@@ -223,7 +271,8 @@ export default function PredictiveAnalyticsPage() {
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

@@ -1,0 +1,370 @@
+// This is your Prisma schema file for AI Sales Stack Ranker
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id         Int      @id @default(autoincrement())
+  org_id     String
+  name       String
+  industry   String?
+  region     String?
+  size_band  String?
+  created_at DateTime @default(now())
+
+  opportunities Opportunity[]
+}
+
+// Sales Opportunity Model
+model Opportunity {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  value       Float     // Deal value in dollars
+  stage       String    // Current stage in pipeline
+  probability Float     @default(0.5) // Win probability (0.0 - 1.0)
+  priority    String    @default("medium") // "low", "medium", "high", "critical"
+  status      String    @default("open") // "open", "won", "lost", "on_hold"
+  closeDate   DateTime? // Expected or actual close date
+  actualCloseDate DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  // Foreign Keys
+  pipelineId  String
+  repId       String
+  sourceId    String
+  companyId   String?
+  priority      String   @default("medium")
+  probability   Float    @default(0.5)
+  
+  // Relations
+  pipeline    Pipeline @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
+  rep         Rep      @relation(fields: [repId], references: [id])
+  source      Source   @relation(fields: [sourceId], references: [id])
+  company     Company? @relation(fields: [companyId], references: [id])
+  
+  // Activities and Analytics
+  activities  Activity[]
+  analytics   Analytics[]
+  notes       Note[]
+  
+  @@map("opportunities")
+}
+
+model Interaction {
+  id             Int      @id @default(autoincrement())
+  opportunity_id Int
+  type           String
+  channel        String?
+  occurred_at    DateTime @default(now())
+  duration_min   Int?
+  outcome        String?
+  meta_json      String?
+
+  opportunity Opportunity @relation(fields: [opportunity_id], references: [id])
+}
+
+model Transcript {
+  id             Int      @id @default(autoincrement())
+  opportunity_id Int
+  occurred_at    DateTime @default(now())
+  text           String
+  embedding      Unsupported("vector")?
+
+  opportunity Opportunity @relation(fields: [opportunity_id], references: [id])
+}
+
+model FeatureSnapshot {
+  opportunity_id Int
+  as_of          DateTime @default(now())
+  feature_json   String
+
+  @@id([opportunity_id, as_of])
+}
+
+model Prediction {
+  opportunity_id    Int
+  as_of             DateTime @default(now())
+  model_version     String
+  proba_close       Float
+  top_features_json String
+
+  PRIMARY KEY (opportunity_id, as_of)
+}
+
+model BenchmarkCached {
+  cohort_key   String
+  as_of        DateTime @default(now())
+  metrics_json String
+
+  PRIMARY KEY (cohort_key, as_of)
+}
+
+// Sales Representative Model
+model Rep {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  phone       String?
+  title       String?  // "Sales Rep", "Account Executive", "Sales Manager"
+  quota       Float?   // Annual or quarterly quota
+  commission  Float?   // Commission rate
+  region      String?
+  territory   String?
+  managerId   String?  // Self-referencing for sales hierarchy
+  isActive    Boolean  @default(true)
+  hireDate    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  manager     Rep?     @relation("RepHierarchy", fields: [managerId], references: [id])
+  reports     Rep[]    @relation("RepHierarchy")
+  opportunities Opportunity[]
+  activities  Activity[]
+  analytics   Analytics[]
+  
+  @@map("reps")
+}
+
+// Sales Pipeline Model
+model Pipeline {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  stage_order Json?    // Array of stage names in order
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  opportunities Opportunity[]
+  
+  @@map("pipelines")
+}
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Lead/Opportunity Source Model
+model Source {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  type        String   // "inbound", "outbound", "referral", "partner", "event", "social", "paid"
+  category    String?  // "digital", "traditional", "networking", "content"
+  cost        Float?   // Cost per lead or total campaign cost
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  opportunities Opportunity[]
+  analytics   Analytics[]
+  
+  @@map("sources")
+}
+
+// Company/Account Model
+model Company {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  domain      String?  @unique
+  industry    String?
+  size        String?  // "startup", "small", "medium", "enterprise"
+  revenue     String?  // "< $1M", "$1M - $10M", "$10M - $100M", "$100M+"
+  employees   Int?
+  website     String?
+  phone       String?
+  address     String?
+  city        String?
+  state       String?
+  country     String   @default("US")
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  opportunities Opportunity[]
+  contacts    Contact[]
+  
+  @@map("companies")
+}
+
+// Contact Model (for people at companies)
+model Contact {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String?
+  phone       String?
+  title       String?
+  department  String?
+  isPrimary   Boolean  @default(false)
+  linkedin    String?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Foreign Keys
+  companyId   String
+  
+  // Relations
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  activities  Activity[]
+  
+  @@map("contacts")
+}
+
+// Activity Log Model (calls, emails, meetings, etc.)
+model Activity {
+  id          String   @id @default(cuid())
+  type        String   // "call", "email", "meeting", "demo", "proposal", "follow_up"
+  subject     String
+  description String?
+  outcome     String?  // "positive", "neutral", "negative", "no_response"
+  duration    Int?     // in minutes
+  scheduledAt DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Foreign Keys
+  opportunityId String
+  repId       String
+  contactId   String?
+  
+  // Relations
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  rep         Rep         @relation(fields: [repId], references: [id])
+  contact     Contact?    @relation(fields: [contactId], references: [id])
+  
+  @@map("activities")
+}
+
+// Notes Model
+model Note {
+  id          String   @id @default(cuid())
+  content     String
+  isPrivate   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Foreign Keys
+  opportunityId String
+  
+  // Relations
+  opportunity Opportunity @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  
+  @@map("notes")
+}
+
+// Analytics and Metrics Model
+model Analytics {
+  id          String   @id @default(cuid())
+  metric      String   // "conversion_rate", "avg_deal_size", "sales_velocity", "win_rate"
+  value       Float
+  period      String   // "daily", "weekly", "monthly", "quarterly", "yearly"
+  periodStart DateTime
+  periodEnd   DateTime
+  metadata    Json?    // Additional context/filters used
+  createdAt   DateTime @default(now())
+  
+  // Foreign Keys (nullable for aggregate metrics)
+  opportunityId String?
+  repId       String?
+  sourceId    String?
+  
+  // Relations
+  opportunity Opportunity? @relation(fields: [opportunityId], references: [id])
+  rep         Rep?         @relation(fields: [repId], references: [id])
+  source      Source?      @relation(fields: [sourceId], references: [id])
+  
+  @@map("analytics")
+}
+
+// Stack/Tool Model (for ranking sales tools)
+model Stack {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  category    String   // "crm", "email", "dialer", "analytics", "automation"
+  description String?
+  website     String?
+  pricing     Json?    // Pricing tiers/models
+  features    Json?    // Feature list
+  integrations Json?   // List of integrations
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  reviews     Review[]
+  rankings    Ranking[]
+  
+  @@map("stacks")
+}
+
+// Review Model (for rating sales tools)
+model Review {
+  id          String   @id @default(cuid())
+  rating      Float    // 1.0 - 5.0
+  title       String?
+  content     String?
+  pros        String?
+  cons        String?
+  useCase     String?  // Company size, industry, use case
+  reviewer    String?  // Reviewer name/title
+  isVerified  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Foreign Keys
+  stackId     String
+  
+  // Relations
+  stack       Stack    @relation(fields: [stackId], references: [id], onDelete: Cascade)
+  
+  @@map("reviews")
+}
+
+// Ranking Model (for comparative rankings)
+model Ranking {
+  id          String   @id @default(cuid())
+  category    String   // Same as Stack.category
+  position    Int
+  score       Float    // Calculated ranking score
+  criteria    Json?    // Ranking criteria used
+  period      String   // "2024-Q1", "2024", etc.
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Foreign Keys
+  stackId     String
+  
+  // Relations
+  stack       Stack    @relation(fields: [stackId], references: [id], onDelete: Cascade)
+  
+  @@unique([stackId, category, period])
+  
+  @@map("rankings")
+}
