@@ -108,20 +108,17 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
     }
   }
 
-  async getOpportunityById(id: string): Promise<OpportunityRecord | null> {
+  async getOpportunityById(rawId: string): Promise<OpportunityRecord | null> {
     try {
-      const opportunityId = parseInt(id)
-      if (isNaN(opportunityId)) {
-        return null
-      }
+      const where = isNaN(Number(rawId)) ? { externalId: rawId } : { id: Number(rawId) }
 
-      const opportunity = await prisma.opportunity.findUnique({
-        where: { id: opportunityId },
+      const opportunity = await prisma.opportunity.findFirst({
+        where,
         include: {
           account: true,
           rep: true,
-          source: true
-        }
+          source: true,
+        },
       })
 
       if (!opportunity) {
@@ -130,37 +127,37 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
 
       // For now, use computed values from probability
       // TODO: Fix analytics JSON queries
-      let predictionScore = Math.round(opportunity.probability * 100)
-      let healthScore: "high" | "medium" | "low" = this.inferHealthScore(opportunity.probability)
+      const predictionScore = Math.round(opportunity.probability * 100)
+      const healthScore: "high" | "medium" | "low" = this.inferHealthScore(opportunity.probability)
 
       return {
-        id: opportunity.id.toString(),
-        name: opportunity.title || 'Untitled Opportunity',
+        id: opportunity.externalId,
+        name: opportunity.title || "Untitled Opportunity",
         owner: opportunity.rep.name,
-        ownerRole: opportunity.rep.title || 'Sales Rep',
-        region: opportunity.rep.region || 'Unknown',
+        ownerRole: opportunity.rep.title || "Sales Rep",
+        region: opportunity.rep.region || "Unknown",
         createdDate: formatDateString(opportunity.created_at),
         closeDate: formatDateString(opportunity.close_date),
         stage: opportunity.stage,
         accountName: opportunity.account.name,
         amount: opportunity.amount,
-        source: opportunity.source?.name || 'Unknown',
+        source: opportunity.source?.name || "Unknown",
         age: calculateAge(opportunity.created_at),
         fiscalPeriod: determineFiscalPeriod(opportunity.close_date),
         predictionScore,
-        healthScore
+        healthScore,
       }
     } catch (error) {
-      console.error('Error fetching opportunity by ID:', error)
+      console.error("Error fetching opportunity by ID:", error)
       return null
     }
   }
 
-  async createOpportunity(data: Omit<OpportunityRecord, 'id' | 'age'>): Promise<OpportunityRecord> {
+  async createOpportunity(data: Omit<OpportunityRecord, "id" | "age">): Promise<OpportunityRecord> {
     try {
       // Find or create related entities
       const rep = await prisma.rep.findFirst({
-        where: { name: data.owner }
+        where: { name: data.owner },
       })
 
       if (!rep) {
@@ -171,52 +168,56 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
         where: { name: data.accountName },
         create: {
           org_id: `ORG-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
-          name: data.accountName
+          name: data.accountName,
         },
-        update: {}
+        update: {},
       })
 
-      const source = data.source ? await prisma.source.upsert({
-        where: { name: data.source },
-        create: {
-          name: data.source,
-          type: 'inbound',
-          category: 'digital'
-        },
-        update: {}
-      }) : null
+      const source = data.source
+        ? await prisma.source.upsert({
+            where: { name: data.source },
+            create: {
+              name: data.source,
+              type: "inbound",
+              category: "digital",
+            },
+            update: {},
+          })
+        : null
 
       const pipeline = await prisma.pipeline.findFirst({
-        where: { name: 'Default Pipeline' }
+        where: { name: "Default Pipeline" },
       })
 
       // Create opportunity
       const opportunity = await prisma.opportunity.create({
         data: {
+          externalId: `006Rj${String(Math.floor(Math.random() * 10000000000))
+            .padStart(10, "0")}`,
           title: data.name,
-          product_category: 'Sales',
+          product_category: "Sales",
           amount: data.amount,
           stage: data.stage,
           probability: data.predictionScore / 100,
-          priority: 'medium',
+          priority: "medium",
           close_date: new Date(data.closeDate),
           created_at: new Date(data.createdDate),
           account: { connect: { id: account.id } },
           rep: { connect: { id: rep.id } },
           source: source ? { connect: { id: source.id } } : undefined,
-          pipeline: pipeline ? { connect: { id: pipeline.id } } : undefined
+          pipeline: pipeline ? { connect: { id: pipeline.id } } : undefined,
         },
         include: {
           account: true,
           rep: true,
-          source: true
-        }
+          source: true,
+        },
       })
 
       // Create analytics entries
       await prisma.analytics.create({
         data: {
-          metric: 'prediction_score',
+          metric: "prediction_score",
           value: data.predictionScore,
           period: data.fiscalPeriod,
           period_start: new Date(),
@@ -224,14 +225,14 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
           metadata_json: { opportunity_id: opportunity.id },
           rep_id: rep.id,
           source_id: source?.id,
-          pipeline_id: pipeline?.id
-        }
+          pipeline_id: pipeline?.id,
+        },
       })
 
-      const healthValue = data.healthScore === 'high' ? 3 : data.healthScore === 'medium' ? 2 : 1
+      const healthValue = data.healthScore === "high" ? 3 : data.healthScore === "medium" ? 2 : 1
       await prisma.analytics.create({
         data: {
-          metric: 'health_score',
+          metric: "health_score",
           value: healthValue,
           period: data.fiscalPeriod,
           period_start: new Date(),
@@ -239,129 +240,145 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
           metadata_json: { opportunity_id: opportunity.id },
           rep_id: rep.id,
           source_id: source?.id,
-          pipeline_id: pipeline?.id
-        }
+          pipeline_id: pipeline?.id,
+        },
       })
 
       return {
-        id: opportunity.id.toString(),
-        name: opportunity.title || 'Untitled',
+        id: opportunity.externalId,
+        name: opportunity.title || "Untitled",
         owner: opportunity.rep.name,
-        ownerRole: opportunity.rep.title || 'Sales Rep',
-        region: opportunity.rep.region || 'Unknown',
+        ownerRole: opportunity.rep.title || "Sales Rep",
+        region: opportunity.rep.region || "Unknown",
         createdDate: formatDateString(opportunity.created_at),
         closeDate: formatDateString(opportunity.close_date),
         stage: opportunity.stage,
         accountName: opportunity.account.name,
         amount: opportunity.amount,
-        source: opportunity.source?.name || 'Unknown',
+        source: opportunity.source?.name || "Unknown",
         age: calculateAge(opportunity.created_at),
         fiscalPeriod: determineFiscalPeriod(opportunity.close_date),
         predictionScore: data.predictionScore,
-        healthScore: data.healthScore
+        healthScore: data.healthScore,
       }
     } catch (error) {
-      console.error('Error creating opportunity:', error)
-      throw new Error('Failed to create opportunity')
+      console.error("Error creating opportunity:", error)
+      throw new Error("Failed to create opportunity")
     }
   }
 
-  async updateOpportunity(id: string, data: Partial<Omit<OpportunityRecord, 'id'>>): Promise<OpportunityRecord> {
+  async updateOpportunity(
+    id: string,
+    data: Partial<Omit<OpportunityRecord, "id">>
+  ): Promise<OpportunityRecord> {
     try {
-      const opportunityId = parseInt(id)
-      
+      const opportunity = await prisma.opportunity.findFirst({
+        where: { externalId: id },
+      })
+      if (!opportunity) {
+        throw new Error("Opportunity not found")
+      }
+      const opportunityId = opportunity.id
+
       const updateData: any = {}
       if (data.name) updateData.title = data.name
       if (data.amount !== undefined) updateData.amount = data.amount
       if (data.stage) updateData.stage = data.stage
       if (data.closeDate) updateData.close_date = new Date(data.closeDate)
-      if (data.predictionScore !== undefined) updateData.probability = data.predictionScore / 100
+      if (data.predictionScore !== undefined)
+        updateData.probability = data.predictionScore / 100
 
-      const opportunity = await prisma.opportunity.update({
+      await prisma.opportunity.update({
         where: { id: opportunityId },
         data: updateData,
         include: {
           account: true,
           rep: true,
-          source: true
-        }
+          source: true,
+        },
       })
 
       // Update analytics if provided
       if (data.predictionScore !== undefined) {
         await prisma.analytics.upsert({
           where: {
-            id: await this.findAnalyticsId(opportunityId, 'prediction_score') || 0
+            id: (await this.findAnalyticsId(opportunityId, "prediction_score")) || 0,
           },
           create: {
-            metric: 'prediction_score',
+            metric: "prediction_score",
             value: data.predictionScore,
-            period: 'updated',
+            period: "updated",
             period_start: new Date(),
             period_end: new Date(),
-            metadata_json: { opportunity_id: opportunityId }
+            metadata_json: { opportunity_id: opportunityId },
           },
           update: {
             value: data.predictionScore,
-            updated_at: new Date()
-          }
+            updated_at: new Date(),
+          },
         })
       }
 
       if (data.healthScore) {
-        const healthValue = data.healthScore === 'high' ? 3 : data.healthScore === 'medium' ? 2 : 1
+        const healthValue = data.healthScore === "high" ? 3 : data.healthScore === "medium" ? 2 : 1
         await prisma.analytics.upsert({
           where: {
-            id: await this.findAnalyticsId(opportunityId, 'health_score') || 0
+            id: (await this.findAnalyticsId(opportunityId, "health_score")) || 0,
           },
           create: {
-            metric: 'health_score',
+            metric: "health_score",
             value: healthValue,
-            period: 'updated',
+            period: "updated",
             period_start: new Date(),
             period_end: new Date(),
-            metadata_json: { opportunity_id: opportunityId }
+            metadata_json: { opportunity_id: opportunityId },
           },
           update: {
             value: healthValue,
-            updated_at: new Date()
-          }
+            updated_at: new Date(),
+          },
         })
       }
 
       // Return updated opportunity
       const updated = await this.getOpportunityById(id)
       if (!updated) {
-        throw new Error('Failed to retrieve updated opportunity')
+        throw new Error("Failed to retrieve updated opportunity")
       }
       return updated
     } catch (error) {
-      console.error('Error updating opportunity:', error)
-      throw new Error('Failed to update opportunity')
+      console.error("Error updating opportunity:", error)
+      throw new Error("Failed to update opportunity")
     }
   }
 
   async deleteOpportunity(id: string): Promise<void> {
     try {
-      const opportunityId = parseInt(id)
+       const opportunity = await prisma.opportunity.findFirst({
+        where: { externalId: id },
+      })
+      if (!opportunity) {
+        throw new Error("Opportunity not found")
+      }
+      const opportunityId = opportunity.id
       
       // Delete related analytics
       await prisma.analytics.deleteMany({
         where: {
           metadata_json: {
-            path: ['opportunity_id'],
-            equals: opportunityId
-          }
-        }
+            path: ["opportunity_id"],
+            equals: opportunityId,
+          },
+        },
       })
 
       // Delete opportunity
       await prisma.opportunity.delete({
-        where: { id: opportunityId }
+        where: { id: opportunityId },
       })
     } catch (error) {
-      console.error('Error deleting opportunity:', error)
-      throw new Error('Failed to delete opportunity')
+      console.error("Error deleting opportunity:", error)
+      throw new Error("Failed to delete opportunity")
     }
   }
 

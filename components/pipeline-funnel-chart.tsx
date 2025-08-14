@@ -48,7 +48,7 @@ export function PipelineFunnelChart() {
     return `$${(value / 1000).toFixed(0)}K`
   }
 
-  const getStageWidth = (stage: any) => {
+  const getStageWidth = (stage: { count: number; value: number }) => {
     const value = viewMode === "count" ? stage.count : stage.value
     return Math.max((value / maxValue) * 100, 15) // Minimum 15% width for visibility
   }

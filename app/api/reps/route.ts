@@ -1,5 +1,5 @@
 // app/api/reps/route.ts
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { getDirectDAL } from '@/lib/api-client'
 
 export async function GET() {

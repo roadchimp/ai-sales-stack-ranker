@@ -25,7 +25,7 @@ import {
   Radar,
   Legend,
 } from "recharts"
-import { sampleOpportunities } from "@/lib/sample-data"
+import { getOpportunity, OpportunityRecord } from "@/lib/api-client"
 import {
   ArrowLeft,
   Brain,
@@ -44,7 +44,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import { useMemo } from "react"
+import { useState, useEffect } from "react"
 
 // Sample cumulative interaction data
 const interactionData = [
@@ -100,23 +100,58 @@ export default function OpportunityDetailPage() {
   const params = useParams()
   const opportunityId = params.id as string
 
-  const opportunity = useMemo(() => {
-    return sampleOpportunities.find((opp) => opp.id === opportunityId)
+  const [opportunity, setOpportunity] = useState<OpportunityRecord | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!opportunityId) return;
+
+    const loadOpportunity = async () => {
+      try {
+        setLoading(true)
+        const data = await getOpportunity(opportunityId)
+        setOpportunity(data)
+        setError(null)
+      } catch (err) {
+        console.error("Failed to load opportunity:", err)
+        setError("Failed to load opportunity")
+        setOpportunity(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadOpportunity()
   }, [opportunityId])
 
-  if (!opportunity) {
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div>Loading opportunity details...</div>
+      </div>
+    )
+  }
+
+  if (error || !opportunity) {
     return (
       <SidebarInset>
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold mb-2">Opportunity Not Found</h2>
-            <p className="text-muted-foreground mb-4">The requested opportunity could not be found.</p>
-            <Button asChild>
-              <Link href="/opportunities">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Predictive Analytics
-              </Link>
-            </Button>
+        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <Card className="p-6">
+              <CardHeader>
+                <CardTitle>Opportunity Not Found</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>The requested opportunity could not be found.</p>
+                <Button asChild className="mt-4">
+                  <Link href="/opportunities">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Opportunities
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </SidebarInset>
@@ -189,7 +224,7 @@ export default function OpportunityDetailPage() {
   const engagementMetrics = calculateEngagementMetrics()
 
   // Custom scatter chart component to handle different colors
-  const CustomScatter = (props: any) => {
+  const CustomScatter = (props: { cx: number; cy: number; payload: { type: string } }) => {
     const { cx, cy, payload } = props
     const color = payload.type === "current" ? "#f97316" : "#3b82f6" // Orange for current, blue for benchmark
     return <circle cx={cx} cy={cy} r={6} fill={color} stroke={color} strokeWidth={2} />
@@ -252,7 +287,7 @@ export default function OpportunityDetailPage() {
                   <AvatarFallback>
                     {opportunity.owner
                       .split(" ")
-                      .map((n) => n[0])
+                      .map((n: string) => n[0])
                       .join("")}
                   </AvatarFallback>
                 </Avatar>
@@ -513,7 +548,7 @@ export default function OpportunityDetailPage() {
                     />
                     <Scatter
                       dataKey="days"
-                      shape={(props) => <CustomScatter {...props} />} // ✅ forward props so payload is defined
+                      shape={(props: any) => <CustomScatter {...props} />} // ✅ forward props so payload is defined
                     />
                     <Legend />
                   </ScatterChart>

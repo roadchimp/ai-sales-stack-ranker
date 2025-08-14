@@ -20,7 +20,7 @@ const formatDate = (timestamp: number) => {
   return new Date(timestamp).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
 }
 
-const CustomTooltip = ({ active, payload }: any) => {
+const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: { name: string; account: string; amount: number; age: number; createdDate: string } }> }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload
     return (
@@ -38,7 +38,7 @@ const CustomTooltip = ({ active, payload }: any) => {
   return null
 }
 
-const CustomScatter = (props: any) => {
+const CustomScatter = (props: { payload?: { stage: string; amount: number }; cx?: number; cy?: number }) => {
   const { payload } = props
   if (!payload) return null // guard ✅
 

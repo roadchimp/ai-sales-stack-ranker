@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
 
-    const filters: any = {}
+    const filters: Record<string, unknown> = {}
     if (stage) filters.stage = stage
     if (rep) filters.rep = rep
     if (region) filters.region = region

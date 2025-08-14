@@ -207,6 +207,7 @@ export function isDatabaseMode(): boolean {
 export function getDirectDAL() {
   // Only import DAL on server side
   if (typeof window === 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { getDAL } = require('../server/dal')
     return getDAL()
   }

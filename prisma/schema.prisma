@@ -1,104 +1,83 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
-// ===== EXISTING CORE MODELS (Fixed) =====
-
 model Account {
-  id         Int      @id @default(autoincrement())
-  org_id     String
-  name       String   @unique
-  industry   String?
-  region     String?
-  size_band  String?
-  
-  // Enhanced fields
-  domain     String?  @unique
-  website    String?
-  employees  Int?
+  id            Int           @id @default(autoincrement())
+  org_id        String
+  name          String        @unique
+  industry      String?
+  region        String?
+  size_band     String?
+  domain        String?       @unique
+  website       String?
+  employees     Int?
   revenue_range String?
-  description String?
-  
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  // Relations
-  opportunities Opportunity[]
+  description   String?
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
   contacts      Contact[]
+  opportunities Opportunity[]
 }
 
 model Opportunity {
-  id               Int      @id @default(autoincrement())
+  id               Int           @id @default(autoincrement())
+  externalId       String?       @unique
   account_id       Int
   owner_id         String
   product_category String
   amount           Float
   stage            String
-  created_at       DateTime @default(now())
+  created_at       DateTime      @default(now())
   close_date       DateTime
   outcome          String?
-  
-  // Enhanced fields
-  title           String?
-  description     String?
-  priority        String   @default("medium")
-  probability     Float    @default(0.5)
-  source_id       Int?
-  pipeline_id     Int?
-
-  // Relations
-  account       Account       @relation(fields: [account_id], references: [id])
-  rep           Rep           @relation(fields: [owner_id], references: [id])
-  source        Source?       @relation(fields: [source_id], references: [id])
-  pipeline      Pipeline?     @relation(fields: [pipeline_id], references: [id])
-  interactions  Interaction[]
-  transcripts   Transcript[]
-  notes         Note[]
+  title            String?
+  description      String?
+  priority         String        @default("medium")
+  probability      Float         @default(0.5)
+  source_id        Int?
+  pipeline_id      Int?
+  interactions     Interaction[]
+  notes            Note[]
+  account          Account       @relation(fields: [account_id], references: [id])
+  rep              Rep           @relation(fields: [owner_id], references: [id])
+  pipeline         Pipeline?     @relation(fields: [pipeline_id], references: [id])
+  source           Source?       @relation(fields: [source_id], references: [id])
+  transcripts      Transcript[]
 }
 
 model Interaction {
-  id             Int      @id @default(autoincrement())
+  id             Int         @id @default(autoincrement())
   opportunity_id Int
   type           String
   channel        String?
-  occurred_at    DateTime @default(now())
+  occurred_at    DateTime    @default(now())
   duration_min   Int?
   outcome        String?
   meta_json      String?
-  
-  // Enhanced fields
   subject        String?
   contact_id     Int?
   rep_id         String?
-
-  // Relations
-  opportunity Opportunity @relation(fields: [opportunity_id], references: [id])
-  contact     Contact?    @relation(fields: [contact_id], references: [id])
-  rep         Rep?        @relation(fields: [rep_id], references: [id])
+  contact        Contact?    @relation(fields: [contact_id], references: [id])
+  opportunity    Opportunity @relation(fields: [opportunity_id], references: [id])
+  rep            Rep?        @relation(fields: [rep_id], references: [id])
 }
 
 model Transcript {
-  id             Int      @id @default(autoincrement())
+  id             Int         @id @default(autoincrement())
   opportunity_id Int
-  occurred_at    DateTime @default(now())
+  occurred_at    DateTime    @default(now())
   text           String
-  
-  // Enhanced fields
   speaker        String?
   sentiment      Float?
   key_topics     String[]
-
-  // Relations
-  opportunity Opportunity @relation(fields: [opportunity_id], references: [id])
+  opportunity    Opportunity @relation(fields: [opportunity_id], references: [id])
 }
 
 model FeatureSnapshot {
@@ -110,13 +89,11 @@ model FeatureSnapshot {
 }
 
 model Prediction {
-  opportunity_id    Int
-  as_of             DateTime @default(now())
-  model_version     String
-  proba_close       Float
-  top_features_json String
-  
-  // Enhanced fields
+  opportunity_id       Int
+  as_of                DateTime  @default(now())
+  model_version        String
+  proba_close          Float
+  top_features_json    String
   confidence_score     Float?
   predicted_close_date DateTime?
   risk_factors         String[]
@@ -132,159 +109,137 @@ model BenchmarkCached {
   @@id([cohort_key, as_of])
 }
 
-// ===== NEW MODELS FOR ENHANCED FUNCTIONALITY =====
-
 model Rep {
-  id          String   @id @default(cuid())
-  email       String   @unique
-  name        String
-  title       String?
-  quota       Float?
-  region      String?
-  territory   String?
-  is_active   Boolean  @default(true)
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-
-  // Relations
-  opportunities Opportunity[]
-  interactions  Interaction[]
+  id            String        @id @default(cuid())
+  email         String        @unique
+  name          String
+  title         String?
+  quota         Float?
+  region        String?
+  territory     String?
+  is_active     Boolean       @default(true)
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
   analytics     Analytics[]
+  interactions  Interaction[]
+  opportunities Opportunity[]
 }
 
 model Pipeline {
-  id          Int      @id @default(autoincrement())
-  name        String   @unique
-  description String?
-  stage_order Json?
-  is_active   Boolean  @default(true)
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-
-  // Relations
-  opportunities Opportunity[]
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  description   String?
+  stage_order   Json?
+  is_active     Boolean       @default(true)
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
   analytics     Analytics[]
+  opportunities Opportunity[]
 }
 
 model Source {
-  id          Int      @id @default(autoincrement())
-  name        String   @unique
-  type        String
-  category    String?
-  cost        Float?
-  description String?
-  is_active   Boolean  @default(true)
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-
-  // Relations
-  opportunities Opportunity[]
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
+  type          String
+  category      String?
+  cost          Float?
+  description   String?
+  is_active     Boolean       @default(true)
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
   analytics     Analytics[]
+  opportunities Opportunity[]
 }
 
 model Contact {
-  id          Int      @id @default(autoincrement())
-  account_id  Int
-  first_name  String
-  last_name   String
-  email       String?
-  phone       String?
-  title       String?
-  department  String?
-  is_primary  Boolean  @default(false)
-  linkedin    String?
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-
-  // Relations
+  id           Int           @id @default(autoincrement())
+  account_id   Int
+  first_name   String
+  last_name    String
+  email        String?
+  phone        String?
+  title        String?
+  department   String?
+  is_primary   Boolean       @default(false)
+  linkedin     String?
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
   account      Account       @relation(fields: [account_id], references: [id])
   interactions Interaction[]
 }
 
 model Note {
-  id            Int      @id @default(autoincrement())
+  id             Int         @id @default(autoincrement())
   opportunity_id Int
-  content       String
-  is_private    Boolean  @default(false)
-  created_by    String?
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
-
-  // Relations
-  opportunity Opportunity @relation(fields: [opportunity_id], references: [id])
+  content        String
+  is_private     Boolean     @default(false)
+  created_by     String?
+  created_at     DateTime    @default(now())
+  updated_at     DateTime    @updatedAt
+  opportunity    Opportunity @relation(fields: [opportunity_id], references: [id])
 }
 
 model SalesStack {
-  id           Int      @id @default(autoincrement())
-  name         String   @unique
-  category     String
-  description  String?
-  website      String?
-  pricing_json Json?
+  id            Int            @id @default(autoincrement())
+  name          String         @unique
+  category      String
+  description   String?
+  website       String?
+  pricing_json  Json?
   features_json Json?
-  is_active    Boolean  @default(true)
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
-
-  // Relations
-  reviews  StackReview[]
-  rankings StackRanking[]
+  is_active     Boolean        @default(true)
+  created_at    DateTime       @default(now())
+  updated_at    DateTime       @updatedAt
+  rankings      StackRanking[]
+  reviews       StackReview[]
 }
 
 model StackReview {
-  id           Int      @id @default(autoincrement())
-  stack_id     Int
-  rating       Float
-  title        String?
-  content      String?
-  pros         String?
-  cons         String?
-  use_case     String?
-  reviewer     String?
-  is_verified  Boolean  @default(false)
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
-
-  // Relations
-  stack SalesStack @relation(fields: [stack_id], references: [id])
+  id          Int        @id @default(autoincrement())
+  stack_id    Int
+  rating      Float
+  title       String?
+  content     String?
+  pros        String?
+  cons        String?
+  use_case    String?
+  reviewer    String?
+  is_verified Boolean    @default(false)
+  created_at  DateTime   @default(now())
+  updated_at  DateTime   @updatedAt
+  stack       SalesStack @relation(fields: [stack_id], references: [id])
 }
 
 model StackRanking {
-  id         Int      @id @default(autoincrement())
-  stack_id   Int
-  category   String
-  position   Int
-  score      Float
-  period     String
+  id            Int        @id @default(autoincrement())
+  stack_id      Int
+  category      String
+  position      Int
+  score         Float
+  period        String
   criteria_json Json?
-  is_active  Boolean  @default(true)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-
-  // Relations
-  stack SalesStack @relation(fields: [stack_id], references: [id])
+  is_active     Boolean    @default(true)
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @updatedAt
+  stack         SalesStack @relation(fields: [stack_id], references: [id])
 
   @@unique([stack_id, category, period])
 }
 
 model Analytics {
-  id           Int      @id @default(autoincrement())
-  metric       String
-  value        Float
-  period       String
-  period_start DateTime
-  period_end   DateTime
+  id            Int       @id @default(autoincrement())
+  metric        String
+  value         Float
+  period        String
+  period_start  DateTime
+  period_end    DateTime
   metadata_json Json?
-  created_at   DateTime @default(now())
-  updated_at   DateTime @updatedAt
-
-  // Optional relations
-  rep_id       String?
-  source_id    Int?
-  pipeline_id  Int?
-  
-  // Relations
-  rep      Rep?      @relation(fields: [rep_id], references: [id])
-  source   Source?   @relation(fields: [source_id], references: [id])
-  pipeline Pipeline? @relation(fields: [pipeline_id], references: [id])
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  rep_id        String?
+  source_id     Int?
+  pipeline_id   Int?
+  pipeline      Pipeline? @relation(fields: [pipeline_id], references: [id])
+  rep           Rep?      @relation(fields: [rep_id], references: [id])
+  source        Source?   @relation(fields: [source_id], references: [id])
 }
