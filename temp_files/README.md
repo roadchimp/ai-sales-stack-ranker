@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://ai-sales-stackranker.vercel.app/](https://ai-sales-stackranker.vercel.app/)**
+**[https://vercel.com/roadchimps-projects/vercelroadmap](https://vercel.com/roadchimps-projects/vercelroadmap)**
 
 ## Build your app
 

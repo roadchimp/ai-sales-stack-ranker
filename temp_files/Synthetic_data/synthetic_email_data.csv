@@ -1,0 +1,1191 @@
+OpportunityID,EmailDate,EmailType,Response,ResponseTime,Opened,Clicked,Replied
+1,2025-04-21,Documentation,Opened,,False,True,True
+1,2025-04-26,Contract,Clicked,150.0,True,True,True
+1,2025-01-14,Pricing,Clicked,,True,True,False
+1,2025-05-02,Pricing,No Response,109.0,True,False,False
+1,2025-02-21,Proposal,Opened,,False,False,True
+1,2025-05-12,Follow-up,Opened,,False,False,False
+1,2024-11-10,Documentation,Clicked,,True,True,True
+1,2025-05-04,Documentation,Opened,50.0,True,False,False
+1,2024-11-25,Contract,Opened,122.0,False,True,False
+1,2025-01-12,Follow-up,Opened,,True,False,True
+1,2025-02-02,Pricing,Clicked,153.0,False,True,False
+2,2024-06-02,Outreach,Opened,,False,True,True
+2,2024-05-27,Documentation,Opened,,False,True,True
+2,2024-11-01,Outreach,Opened,,False,False,True
+2,2024-10-17,Documentation,Clicked,116.0,False,False,False
+2,2024-10-17,Pricing,Opened,,True,False,False
+2,2024-10-09,Follow-up,Opened,3.0,True,True,True
+2,2024-10-22,Pricing,Replied,,False,False,False
+2,2024-06-28,Follow-up,Clicked,15.0,True,False,False
+3,2024-12-30,Pricing,Clicked,120.0,False,False,False
+3,2025-01-14,Outreach,Clicked,60.0,True,False,False
+3,2024-12-01,Follow-up,Clicked,87.0,True,False,False
+3,2025-03-14,Contract,Replied,,False,False,False
+3,2024-11-22,Outreach,No Response,126.0,True,True,True
+3,2025-04-07,Follow-up,No Response,61.0,False,False,False
+3,2024-12-03,Documentation,Clicked,92.0,True,True,False
+3,2024-10-19,Pricing,Opened,74.0,False,True,False
+3,2024-10-23,Outreach,Clicked,72.0,True,True,False
+3,2025-04-14,Follow-up,Replied,45.0,True,True,True
+3,2024-12-18,Outreach,Opened,97.0,True,False,True
+3,2024-12-29,Documentation,Clicked,,False,True,False
+3,2025-04-12,Outreach,Opened,33.0,True,True,False
+3,2025-04-07,Proposal,Replied,,True,True,True
+3,2025-02-26,Proposal,Clicked,,True,True,False
+3,2024-11-13,Pricing,No Response,20.0,False,True,True
+4,2025-01-25,Pricing,Replied,,False,True,False
+4,2025-02-11,Proposal,No Response,,False,False,False
+4,2025-01-23,Pricing,Opened,56.0,True,False,True
+4,2024-11-22,Follow-up,Replied,,False,True,False
+4,2024-10-17,Pricing,Opened,21.0,False,False,False
+4,2024-10-10,Pricing,Opened,,False,False,False
+4,2024-12-10,Documentation,No Response,,False,False,False
+4,2024-11-18,Outreach,Clicked,,True,False,True
+4,2024-11-12,Outreach,Replied,70.0,True,True,True
+4,2024-08-31,Proposal,Opened,85.0,True,False,False
+4,2024-10-29,Contract,Replied,154.0,True,False,True
+4,2024-10-28,Proposal,Replied,,False,True,False
+4,2025-01-27,Pricing,Clicked,,True,True,True
+4,2024-12-12,Follow-up,No Response,,False,True,False
+4,2024-09-30,Documentation,No Response,112.0,False,True,False
+4,2024-09-17,Pricing,Clicked,,True,False,False
+4,2024-11-07,Follow-up,No Response,,False,False,False
+5,2024-10-15,Outreach,Clicked,84.0,False,False,True
+5,2024-08-31,Outreach,No Response,121.0,True,False,False
+5,2024-11-02,Proposal,Opened,26.0,True,True,False
+5,2024-05-29,Follow-up,Clicked,98.0,False,True,True
+5,2024-08-05,Contract,Opened,,True,False,True
+6,2024-10-26,Documentation,No Response,28.0,True,False,False
+6,2025-02-10,Outreach,No Response,33.0,True,False,False
+6,2025-02-01,Contract,No Response,154.0,False,True,False
+6,2024-10-13,Follow-up,Opened,114.0,True,False,True
+6,2024-12-16,Proposal,No Response,,False,True,True
+6,2024-10-16,Contract,No Response,,False,False,True
+6,2024-11-18,Follow-up,Clicked,,False,False,True
+6,2025-01-29,Pricing,Opened,,True,True,True
+6,2024-10-13,Contract,Replied,55.0,False,False,True
+6,2024-11-06,Outreach,Opened,,False,False,True
+7,2024-11-27,Pricing,Opened,,True,True,False
+7,2025-01-10,Proposal,No Response,101.0,True,True,False
+7,2024-11-03,Contract,Clicked,,False,False,False
+7,2024-10-22,Outreach,Clicked,,True,False,False
+7,2024-11-15,Follow-up,Opened,45.0,False,True,False
+7,2024-11-17,Outreach,Opened,,True,False,False
+7,2024-11-19,Follow-up,Opened,113.0,True,True,False
+7,2025-03-30,Proposal,No Response,153.0,True,True,False
+7,2024-11-25,Follow-up,Replied,51.0,True,True,False
+7,2024-10-12,Outreach,Replied,16.0,True,True,True
+7,2025-04-08,Follow-up,Opened,,True,False,False
+7,2025-02-25,Contract,Clicked,138.0,False,False,True
+7,2024-12-03,Follow-up,Opened,,False,True,True
+8,2025-04-10,Proposal,Opened,,True,False,True
+8,2024-11-10,Contract,Replied,,True,True,True
+8,2025-02-07,Proposal,No Response,137.0,True,False,True
+8,2025-03-27,Proposal,No Response,85.0,True,False,False
+8,2024-11-11,Proposal,Opened,,False,True,True
+8,2024-12-23,Outreach,Opened,,True,False,True
+8,2025-04-01,Outreach,Opened,95.0,False,False,True
+8,2024-12-02,Documentation,Clicked,60.0,False,False,True
+8,2025-01-04,Proposal,Opened,,False,True,True
+8,2025-04-30,Proposal,Replied,52.0,True,True,True
+8,2025-03-29,Documentation,Replied,113.0,True,True,False
+8,2024-11-11,Follow-up,Opened,52.0,True,True,True
+8,2025-03-25,Pricing,Clicked,129.0,True,False,False
+8,2025-01-12,Follow-up,Clicked,108.0,True,True,False
+8,2025-01-06,Pricing,No Response,69.0,False,True,False
+8,2025-02-03,Documentation,Clicked,,False,False,False
+8,2024-12-03,Documentation,Opened,,False,True,False
+9,2024-10-03,Contract,Clicked,,False,False,False
+9,2024-09-08,Proposal,No Response,,True,False,True
+9,2024-11-14,Documentation,Clicked,48.0,True,True,False
+9,2024-09-17,Documentation,No Response,,False,False,False
+9,2024-08-01,Contract,Opened,,True,True,False
+9,2024-10-06,Follow-up,Clicked,,False,False,False
+9,2024-10-24,Contract,Replied,166.0,False,False,True
+9,2024-07-16,Documentation,Opened,,True,True,False
+9,2024-10-16,Documentation,Clicked,,True,True,True
+10,2024-11-09,Contract,No Response,,True,True,False
+10,2024-11-28,Documentation,Replied,,False,False,False
+10,2025-04-21,Outreach,Opened,,True,False,True
+10,2025-01-26,Contract,Replied,43.0,False,True,True
+10,2024-11-03,Contract,No Response,,False,False,True
+10,2024-12-01,Proposal,Clicked,50.0,False,True,True
+10,2025-02-09,Pricing,Clicked,51.0,True,True,True
+10,2024-12-22,Documentation,No Response,162.0,True,True,False
+11,2025-03-26,Outreach,Replied,87.0,True,True,False
+11,2025-04-23,Contract,Opened,15.0,False,True,True
+11,2025-01-13,Follow-up,Opened,,False,False,False
+11,2025-03-16,Pricing,No Response,,False,False,False
+11,2025-02-19,Proposal,No Response,,True,False,False
+11,2025-01-14,Outreach,No Response,,True,True,True
+11,2025-05-04,Proposal,Clicked,,False,False,False
+12,2024-08-05,Contract,Replied,162.0,False,True,False
+12,2025-01-25,Documentation,Clicked,,False,True,False
+12,2024-11-22,Documentation,Opened,,False,True,True
+12,2024-12-16,Pricing,Opened,127.0,True,False,False
+12,2024-09-17,Documentation,Opened,,True,True,True
+12,2024-09-17,Contract,Opened,111.0,True,True,False
+12,2024-11-11,Proposal,Clicked,,False,True,True
+12,2024-12-19,Contract,No Response,85.0,True,True,False
+12,2024-11-09,Contract,No Response,,True,True,False
+12,2024-09-03,Proposal,Opened,22.0,False,True,True
+12,2024-12-29,Proposal,Clicked,,False,True,False
+13,2025-02-25,Pricing,Clicked,,False,False,False
+13,2025-03-19,Follow-up,Clicked,101.0,True,False,False
+13,2024-11-03,Proposal,Clicked,,False,True,False
+13,2024-11-03,Contract,Opened,,False,True,False
+13,2025-03-26,Pricing,No Response,126.0,False,False,True
+13,2024-12-21,Follow-up,Clicked,13.0,True,False,False
+14,2025-05-20,Follow-up,Opened,,False,False,False
+14,2025-03-02,Documentation,No Response,135.0,False,False,True
+14,2025-05-31,Pricing,No Response,33.0,False,True,False
+14,2025-03-30,Contract,Clicked,113.0,False,False,True
+14,2025-01-25,Follow-up,Clicked,92.0,True,True,False
+14,2025-03-22,Contract,Clicked,24.0,False,False,True
+14,2024-12-16,Outreach,Replied,,True,False,True
+14,2024-12-11,Outreach,Clicked,,False,False,True
+14,2025-05-19,Contract,No Response,118.0,False,False,False
+14,2025-03-07,Outreach,Opened,21.0,True,False,True
+14,2024-12-08,Pricing,No Response,,True,True,False
+14,2025-04-05,Contract,No Response,,True,True,False
+14,2024-12-19,Contract,Clicked,,True,False,False
+14,2024-12-19,Pricing,Opened,168.0,True,True,True
+15,2024-10-01,Documentation,Replied,10.0,True,True,True
+15,2024-06-03,Pricing,Replied,21.0,True,False,False
+15,2024-09-28,Follow-up,No Response,63.0,False,True,False
+15,2024-10-27,Pricing,No Response,147.0,False,False,False
+15,2024-10-14,Pricing,Clicked,11.0,True,True,True
+16,2025-04-19,Follow-up,Clicked,151.0,False,False,True
+16,2025-08-07,Pricing,No Response,140.0,False,False,False
+16,2025-07-18,Follow-up,No Response,,True,False,False
+16,2025-07-29,Follow-up,Clicked,161.0,False,True,False
+16,2025-06-26,Contract,Clicked,,True,False,False
+16,2025-05-10,Outreach,Clicked,69.0,True,True,False
+16,2025-02-18,Proposal,Opened,,False,False,True
+16,2025-03-31,Proposal,Opened,96.0,True,False,True
+16,2025-03-05,Follow-up,Replied,,True,False,False
+17,2024-12-03,Outreach,Opened,81.0,False,True,False
+17,2025-01-06,Contract,No Response,,True,False,True
+17,2024-12-23,Pricing,Clicked,36.0,False,False,True
+17,2025-01-02,Contract,Replied,155.0,False,False,True
+17,2024-10-21,Proposal,No Response,,False,False,True
+17,2024-09-17,Contract,Opened,,False,False,True
+17,2024-12-10,Outreach,Opened,23.0,True,True,True
+17,2025-01-07,Proposal,No Response,108.0,True,False,False
+17,2024-11-09,Contract,Opened,,True,True,True
+17,2024-12-30,Documentation,Replied,135.0,True,False,True
+17,2024-12-20,Pricing,Clicked,19.0,False,True,False
+17,2024-07-14,Documentation,No Response,,True,False,True
+17,2024-09-25,Contract,Clicked,74.0,False,False,False
+18,2024-07-28,Outreach,No Response,78.0,True,False,False
+18,2024-06-18,Proposal,Opened,,False,False,False
+18,2024-07-01,Outreach,Replied,102.0,False,True,True
+18,2024-09-22,Documentation,Clicked,135.0,True,False,True
+18,2024-10-06,Outreach,Clicked,,True,False,False
+18,2024-09-07,Proposal,Replied,,True,False,True
+18,2024-09-24,Contract,No Response,35.0,False,False,True
+18,2024-09-03,Contract,Clicked,48.0,False,True,True
+18,2024-09-13,Documentation,Replied,41.0,True,False,False
+18,2024-07-04,Documentation,No Response,,True,False,False
+18,2024-10-10,Contract,No Response,28.0,True,True,True
+18,2024-07-13,Proposal,Opened,13.0,False,False,True
+18,2024-09-23,Documentation,Replied,,False,True,False
+19,2025-05-10,Follow-up,Clicked,71.0,True,False,True
+19,2025-05-22,Documentation,Clicked,,True,True,True
+19,2025-05-03,Contract,Clicked,30.0,True,False,True
+19,2025-02-11,Follow-up,Clicked,,True,True,True
+19,2024-12-16,Documentation,No Response,,True,True,False
+19,2025-03-22,Documentation,Opened,,True,False,True
+19,2025-02-09,Proposal,Replied,,False,True,False
+19,2024-12-15,Follow-up,Opened,13.0,False,True,False
+19,2025-04-02,Proposal,Opened,,True,False,False
+19,2025-03-06,Proposal,Replied,24.0,True,True,False
+19,2025-03-05,Contract,Replied,,True,False,True
+19,2025-05-01,Documentation,Opened,33.0,True,True,True
+20,2025-06-13,Documentation,Opened,139.0,False,False,False
+20,2025-02-04,Pricing,Clicked,32.0,True,False,False
+20,2025-05-07,Proposal,Replied,,True,False,True
+20,2025-04-17,Documentation,Opened,153.0,False,True,False
+20,2024-12-26,Pricing,Opened,101.0,False,True,True
+20,2025-04-06,Pricing,No Response,,False,False,True
+20,2025-01-31,Outreach,Clicked,151.0,True,False,False
+20,2025-03-02,Follow-up,Replied,,True,True,True
+20,2024-12-26,Pricing,Clicked,,True,True,False
+20,2025-01-18,Proposal,Opened,53.0,True,True,False
+20,2025-05-25,Pricing,Replied,,True,False,True
+21,2025-05-08,Proposal,Replied,160.0,True,False,True
+21,2025-06-08,Proposal,Clicked,,True,True,False
+21,2025-05-19,Proposal,Clicked,,True,False,False
+21,2025-01-24,Pricing,No Response,114.0,True,False,False
+21,2025-01-09,Documentation,Opened,,True,False,True
+21,2025-01-17,Follow-up,No Response,165.0,False,True,False
+21,2025-01-13,Follow-up,No Response,17.0,True,True,False
+21,2025-02-03,Documentation,No Response,134.0,True,True,True
+21,2025-03-09,Documentation,Opened,3.0,True,True,True
+21,2024-12-24,Proposal,Clicked,2.0,True,False,True
+21,2025-01-23,Follow-up,No Response,,True,False,False
+21,2025-04-04,Follow-up,Clicked,139.0,False,True,True
+21,2024-12-14,Outreach,Replied,130.0,False,True,True
+21,2025-01-29,Outreach,Clicked,,False,True,False
+21,2025-05-19,Proposal,Clicked,,True,False,True
+21,2024-12-31,Follow-up,Opened,,False,True,False
+21,2025-01-02,Proposal,Opened,154.0,True,True,False
+21,2025-04-17,Proposal,Clicked,,True,False,False
+22,2025-01-30,Proposal,No Response,,False,True,True
+22,2025-02-11,Contract,Clicked,,True,False,False
+22,2025-07-07,Documentation,Opened,147.0,False,False,True
+22,2025-01-27,Proposal,Clicked,98.0,False,False,False
+22,2025-04-22,Documentation,No Response,,True,True,False
+22,2025-04-21,Pricing,No Response,,True,False,True
+22,2025-06-01,Contract,No Response,22.0,True,False,True
+22,2025-02-25,Outreach,Replied,,True,True,True
+22,2025-04-03,Proposal,Clicked,,False,True,False
+22,2025-03-07,Follow-up,Clicked,35.0,True,True,False
+22,2025-07-10,Outreach,No Response,,True,True,True
+22,2025-05-06,Pricing,Clicked,37.0,False,True,True
+22,2025-03-07,Outreach,Opened,,True,True,False
+22,2025-07-13,Follow-up,Replied,,False,False,False
+22,2025-06-18,Contract,Opened,,True,True,True
+22,2025-06-17,Outreach,Clicked,2.0,False,False,False
+23,2025-02-13,Pricing,Replied,108.0,True,False,True
+23,2025-01-31,Documentation,Clicked,102.0,True,True,False
+23,2024-11-06,Contract,Opened,,False,False,False
+23,2024-12-26,Follow-up,Opened,,False,True,False
+23,2024-10-17,Outreach,Opened,,False,True,True
+23,2024-12-01,Follow-up,Opened,54.0,True,False,True
+23,2025-02-08,Follow-up,Opened,68.0,True,True,False
+23,2024-10-01,Outreach,Replied,79.0,True,False,False
+23,2024-12-30,Pricing,Clicked,,False,False,True
+23,2025-03-18,Contract,Opened,,False,True,True
+23,2024-09-26,Pricing,No Response,,True,False,True
+23,2024-10-28,Contract,No Response,160.0,True,True,True
+23,2025-03-13,Contract,Clicked,128.0,False,False,True
+24,2025-02-15,Proposal,No Response,99.0,True,True,True
+24,2025-01-11,Pricing,No Response,3.0,True,False,True
+24,2025-04-09,Outreach,No Response,,True,False,True
+24,2024-12-20,Proposal,Replied,,True,True,True
+24,2025-06-02,Documentation,Replied,,False,False,True
+24,2025-01-03,Pricing,No Response,93.0,False,False,False
+24,2025-05-10,Contract,Clicked,,False,False,False
+24,2024-12-24,Contract,No Response,,False,True,True
+24,2025-06-10,Follow-up,Opened,26.0,False,False,True
+24,2025-04-27,Documentation,Opened,99.0,False,True,False
+24,2025-04-01,Documentation,No Response,21.0,True,True,False
+24,2025-03-23,Follow-up,No Response,,True,False,False
+24,2025-05-06,Documentation,Clicked,,True,False,False
+24,2024-12-12,Pricing,Clicked,,True,True,False
+24,2025-04-27,Outreach,No Response,92.0,False,False,True
+25,2025-05-17,Outreach,No Response,,False,True,True
+25,2025-04-29,Outreach,Replied,,True,False,False
+25,2025-07-09,Pricing,Clicked,,True,True,True
+25,2025-07-11,Proposal,Replied,50.0,False,False,False
+25,2025-07-23,Pricing,Clicked,,False,False,True
+25,2025-08-14,Pricing,Clicked,148.0,True,False,False
+26,2024-12-24,Documentation,Clicked,,False,True,False
+26,2025-01-22,Pricing,Opened,,True,False,True
+26,2024-11-25,Follow-up,Clicked,,True,False,True
+26,2025-02-13,Follow-up,Clicked,94.0,False,True,False
+26,2025-02-02,Pricing,Opened,,False,False,False
+27,2024-11-16,Pricing,No Response,,True,True,False
+27,2024-12-05,Proposal,Clicked,138.0,False,False,False
+27,2025-02-02,Contract,No Response,,True,True,True
+27,2024-09-09,Contract,Opened,,True,False,True
+27,2025-01-27,Documentation,Opened,,False,True,True
+27,2024-12-12,Pricing,No Response,50.0,False,True,False
+27,2024-12-14,Documentation,No Response,95.0,True,False,False
+27,2025-02-02,Proposal,Replied,,True,True,False
+27,2024-08-26,Outreach,Opened,95.0,False,False,True
+27,2025-01-11,Documentation,Clicked,,True,False,True
+27,2025-01-12,Documentation,Clicked,,True,False,False
+27,2024-12-28,Follow-up,No Response,25.0,True,True,False
+27,2025-01-25,Proposal,Clicked,,True,True,True
+27,2024-08-24,Documentation,Opened,7.0,True,False,True
+27,2025-02-24,Contract,Clicked,,False,True,True
+27,2025-02-01,Follow-up,Replied,137.0,True,False,False
+28,2025-04-11,Outreach,Clicked,163.0,True,True,False
+28,2025-07-02,Outreach,Opened,72.0,False,True,True
+28,2025-02-19,Documentation,Replied,100.0,True,False,True
+28,2025-05-16,Outreach,No Response,53.0,False,False,False
+28,2025-07-12,Documentation,Clicked,76.0,True,True,True
+28,2025-03-02,Proposal,Replied,,True,True,False
+29,2024-06-05,Pricing,Opened,132.0,True,True,False
+29,2024-05-16,Follow-up,Opened,,True,True,True
+29,2024-10-20,Contract,Clicked,,False,False,True
+29,2024-05-10,Proposal,Replied,,False,False,False
+29,2024-06-05,Proposal,Clicked,71.0,False,True,False
+29,2024-05-29,Follow-up,No Response,,False,False,False
+29,2024-07-07,Pricing,Opened,,False,True,False
+29,2024-07-21,Contract,Opened,,True,True,False
+30,2024-10-28,Pricing,Replied,,True,True,True
+30,2024-11-04,Documentation,Clicked,,True,True,True
+30,2025-01-29,Proposal,Replied,80.0,True,True,False
+30,2025-02-06,Outreach,Replied,119.0,False,True,True
+30,2024-11-20,Proposal,Clicked,26.0,False,True,False
+30,2025-02-04,Documentation,Replied,,True,True,True
+30,2024-12-18,Documentation,Opened,,False,True,True
+30,2024-12-07,Follow-up,Replied,,True,True,False
+30,2024-08-18,Contract,Opened,,False,True,False
+30,2024-08-23,Pricing,Opened,,True,True,False
+30,2024-09-07,Documentation,Replied,,False,False,False
+30,2024-09-03,Pricing,Replied,,True,False,False
+30,2025-02-08,Documentation,No Response,95.0,True,True,True
+30,2024-08-26,Outreach,Clicked,82.0,False,True,True
+30,2024-09-05,Follow-up,Replied,13.0,False,True,True
+30,2024-08-26,Proposal,Opened,,False,False,False
+30,2025-02-08,Follow-up,Clicked,,True,True,False
+30,2024-09-20,Pricing,No Response,,True,True,False
+31,2024-10-23,Proposal,No Response,23.0,False,False,True
+31,2024-11-11,Pricing,Clicked,19.0,True,False,True
+31,2024-10-06,Outreach,Clicked,,False,True,False
+31,2024-09-08,Proposal,Clicked,,False,False,True
+31,2024-12-20,Outreach,Clicked,93.0,False,False,True
+31,2024-11-23,Follow-up,Opened,,False,True,False
+31,2025-01-07,Contract,Opened,118.0,True,True,True
+31,2024-08-17,Documentation,Clicked,,True,False,False
+31,2024-11-11,Proposal,Opened,90.0,False,True,True
+31,2024-11-22,Pricing,No Response,,True,False,False
+31,2024-11-15,Outreach,Opened,,False,True,False
+31,2024-09-30,Documentation,Clicked,,False,False,True
+31,2025-02-03,Outreach,Clicked,56.0,True,True,True
+31,2025-01-07,Proposal,Clicked,136.0,True,False,True
+31,2025-01-18,Contract,No Response,,False,True,True
+31,2025-02-16,Contract,Replied,,True,True,True
+31,2024-11-09,Contract,Replied,,True,True,True
+31,2024-12-19,Contract,No Response,,True,True,False
+31,2025-02-03,Outreach,Clicked,85.0,False,True,True
+31,2025-01-30,Documentation,No Response,,True,True,False
+32,2025-01-02,Contract,Opened,,False,True,False
+32,2025-01-22,Documentation,Opened,4.0,False,True,True
+32,2024-12-27,Outreach,Opened,,False,False,False
+32,2025-05-27,Proposal,Replied,,False,False,False
+32,2024-11-23,Proposal,Replied,,False,True,False
+32,2025-05-14,Pricing,Opened,105.0,True,True,False
+32,2025-03-27,Outreach,Clicked,,False,True,True
+33,2025-02-20,Contract,Opened,,False,True,False
+33,2025-05-08,Proposal,Replied,,False,False,False
+33,2025-01-03,Outreach,Replied,110.0,False,False,False
+33,2024-12-14,Outreach,No Response,119.0,True,False,True
+33,2025-02-01,Documentation,Replied,75.0,True,False,True
+33,2025-01-10,Proposal,Opened,125.0,False,True,False
+33,2025-02-14,Contract,Opened,64.0,True,False,False
+33,2025-03-24,Contract,Clicked,69.0,True,True,False
+33,2025-04-14,Outreach,Replied,8.0,False,False,True
+33,2025-05-08,Contract,No Response,,False,True,False
+33,2025-02-01,Pricing,Replied,144.0,False,False,True
+34,2025-04-06,Follow-up,No Response,77.0,False,True,False
+34,2025-06-26,Contract,No Response,96.0,False,True,True
+34,2025-06-15,Documentation,Replied,,False,False,False
+34,2025-05-31,Documentation,No Response,,True,True,False
+34,2025-02-23,Follow-up,Replied,148.0,False,True,False
+34,2025-02-14,Documentation,Clicked,,True,False,False
+34,2025-02-14,Outreach,Opened,,True,False,True
+34,2025-04-16,Pricing,No Response,,True,True,True
+34,2025-07-30,Follow-up,Clicked,,True,True,True
+34,2025-04-19,Contract,Replied,124.0,True,True,True
+34,2025-02-01,Follow-up,Opened,63.0,True,True,False
+35,2025-02-11,Documentation,No Response,31.0,False,False,False
+35,2024-11-21,Follow-up,Replied,,True,False,True
+35,2025-03-16,Outreach,Clicked,168.0,True,True,True
+35,2025-02-03,Documentation,Replied,,True,False,False
+35,2025-03-24,Proposal,No Response,,True,False,False
+36,2024-09-26,Outreach,Replied,,True,False,True
+36,2025-01-15,Proposal,Opened,,True,False,True
+36,2024-12-17,Contract,No Response,,True,True,False
+36,2024-12-26,Pricing,Clicked,,False,True,True
+36,2025-02-03,Follow-up,Replied,,False,True,False
+36,2025-02-04,Proposal,No Response,165.0,False,False,False
+36,2025-01-22,Contract,Clicked,,True,False,False
+36,2025-01-16,Pricing,No Response,11.0,True,True,True
+36,2024-09-13,Contract,Opened,,False,False,True
+36,2025-02-23,Follow-up,Opened,98.0,False,True,True
+36,2025-01-23,Proposal,Opened,18.0,False,False,True
+36,2024-10-03,Proposal,Opened,,False,True,True
+36,2024-10-09,Proposal,No Response,,False,True,True
+36,2025-02-25,Follow-up,No Response,22.0,True,True,True
+36,2024-08-28,Follow-up,Opened,,False,True,False
+36,2024-10-06,Contract,No Response,53.0,False,False,False
+36,2025-01-25,Pricing,Clicked,112.0,False,False,True
+36,2025-01-12,Outreach,Clicked,,True,True,False
+37,2024-10-30,Pricing,Replied,57.0,False,False,False
+37,2025-04-15,Proposal,Opened,73.0,True,True,False
+37,2025-01-27,Pricing,Opened,149.0,False,False,True
+37,2024-10-25,Proposal,No Response,,True,False,True
+37,2024-11-21,Follow-up,Replied,60.0,False,True,True
+37,2025-01-13,Outreach,No Response,141.0,False,True,False
+37,2025-04-20,Outreach,Opened,127.0,True,False,False
+37,2025-02-16,Proposal,Clicked,14.0,True,True,False
+37,2025-04-09,Contract,Opened,,True,False,False
+37,2025-04-13,Follow-up,No Response,,True,True,False
+37,2024-11-16,Pricing,Replied,,True,False,False
+37,2024-10-31,Follow-up,Clicked,150.0,True,True,False
+38,2024-09-12,Contract,Clicked,19.0,True,True,False
+38,2024-10-25,Proposal,Opened,,False,True,False
+38,2024-10-12,Pricing,No Response,,True,True,True
+38,2024-11-12,Pricing,Clicked,,False,True,False
+38,2025-03-10,Proposal,Replied,,True,False,False
+38,2025-03-06,Pricing,Opened,88.0,False,False,False
+39,2024-09-12,Follow-up,Clicked,,True,True,False
+39,2025-01-23,Follow-up,Opened,112.0,False,True,True
+39,2024-11-26,Outreach,Replied,,False,False,True
+39,2024-08-06,Proposal,No Response,,True,False,False
+39,2024-11-12,Outreach,Clicked,97.0,True,False,True
+39,2025-01-07,Proposal,Opened,,True,False,False
+39,2024-12-20,Follow-up,Opened,,False,False,True
+40,2024-09-24,Documentation,Replied,,False,False,True
+40,2024-08-11,Documentation,Clicked,3.0,False,False,True
+40,2024-07-08,Pricing,Replied,,False,True,False
+40,2024-08-06,Proposal,Replied,31.0,False,False,False
+40,2024-06-20,Documentation,No Response,112.0,True,False,True
+40,2024-08-05,Documentation,Clicked,,True,True,False
+40,2024-10-09,Pricing,Replied,112.0,True,False,False
+40,2024-07-11,Documentation,Clicked,161.0,True,True,True
+41,2024-10-03,Contract,Opened,129.0,False,False,True
+41,2025-01-23,Contract,Clicked,66.0,False,True,False
+41,2025-01-20,Contract,Opened,89.0,True,True,False
+41,2024-10-02,Pricing,Opened,52.0,False,False,False
+41,2024-09-22,Contract,No Response,,True,True,False
+41,2025-02-06,Proposal,Replied,,False,False,False
+41,2025-02-10,Outreach,Clicked,,True,False,True
+41,2025-02-02,Outreach,Opened,80.0,False,True,False
+41,2025-01-31,Outreach,Clicked,,True,True,True
+41,2025-01-26,Pricing,No Response,135.0,True,False,False
+41,2024-11-24,Proposal,Clicked,,True,False,True
+41,2024-12-05,Follow-up,No Response,,True,True,False
+42,2024-12-24,Outreach,Replied,92.0,False,True,False
+42,2025-01-08,Follow-up,Clicked,104.0,True,False,False
+42,2024-12-19,Proposal,Opened,104.0,False,True,False
+42,2025-03-03,Follow-up,Clicked,,True,True,True
+42,2025-01-08,Proposal,No Response,32.0,True,False,True
+42,2025-03-18,Follow-up,Opened,131.0,False,False,False
+42,2024-10-25,Documentation,Clicked,,True,False,False
+42,2025-02-21,Pricing,Opened,18.0,False,False,False
+42,2025-03-03,Documentation,No Response,,False,True,True
+42,2025-03-27,Pricing,Opened,1.0,False,False,False
+42,2024-12-14,Documentation,Clicked,,True,True,False
+42,2025-01-27,Proposal,Opened,,False,False,False
+42,2024-12-13,Follow-up,Clicked,53.0,False,False,False
+42,2024-10-18,Proposal,Replied,30.0,False,False,False
+42,2025-01-13,Follow-up,Clicked,,False,True,True
+42,2025-03-12,Proposal,Clicked,52.0,True,True,True
+42,2025-02-08,Pricing,Clicked,125.0,True,False,True
+42,2024-12-04,Pricing,No Response,,True,False,False
+43,2025-05-25,Contract,Opened,,False,False,False
+43,2024-12-15,Follow-up,Replied,90.0,True,True,True
+43,2025-02-14,Follow-up,Replied,,False,True,False
+43,2024-12-02,Documentation,Opened,,True,True,True
+43,2025-01-24,Follow-up,No Response,50.0,False,False,True
+43,2025-03-27,Follow-up,No Response,,True,True,True
+43,2025-04-04,Contract,Clicked,111.0,True,False,True
+43,2025-05-23,Follow-up,Opened,,False,False,True
+44,2024-11-14,Pricing,Clicked,,True,False,False
+44,2024-11-16,Contract,No Response,,False,False,True
+44,2024-09-08,Outreach,Replied,,False,False,True
+44,2024-12-30,Documentation,Opened,118.0,False,True,False
+44,2025-01-08,Documentation,Clicked,,False,False,True
+44,2024-07-21,Proposal,Replied,104.0,True,False,False
+44,2025-01-02,Proposal,No Response,,False,False,False
+44,2024-09-18,Outreach,Replied,,True,False,True
+44,2024-09-30,Documentation,No Response,146.0,True,True,True
+44,2024-12-18,Pricing,Replied,154.0,True,True,False
+44,2024-08-06,Contract,Replied,,True,True,True
+44,2024-10-14,Pricing,Clicked,137.0,False,True,False
+44,2024-08-24,Proposal,Replied,,True,True,True
+44,2024-07-23,Outreach,Opened,,False,True,True
+44,2024-09-24,Proposal,Opened,161.0,True,True,False
+44,2024-08-14,Documentation,No Response,69.0,True,True,True
+45,2024-06-10,Outreach,Clicked,150.0,False,True,False
+45,2024-08-26,Documentation,Opened,,False,False,True
+45,2024-06-30,Proposal,No Response,,False,False,True
+45,2024-07-31,Documentation,Replied,,False,True,False
+45,2024-06-09,Documentation,No Response,,True,False,True
+45,2024-10-30,Outreach,No Response,114.0,False,False,True
+45,2024-11-16,Proposal,Replied,161.0,True,True,True
+45,2024-07-28,Documentation,Clicked,36.0,False,False,True
+45,2024-06-20,Documentation,Replied,,False,False,True
+45,2024-06-14,Proposal,No Response,68.0,True,False,False
+45,2024-08-24,Contract,Clicked,,False,False,True
+45,2024-07-01,Documentation,Opened,,True,True,True
+45,2024-10-16,Contract,Opened,50.0,False,True,True
+45,2024-09-21,Documentation,Clicked,,True,False,False
+45,2024-06-07,Proposal,Opened,,False,False,False
+45,2024-11-09,Proposal,Clicked,74.0,True,False,False
+45,2024-10-03,Documentation,Clicked,,True,True,False
+45,2024-06-07,Proposal,No Response,38.0,False,True,True
+46,2024-12-15,Follow-up,Clicked,137.0,False,False,True
+46,2024-07-04,Pricing,No Response,17.0,False,True,False
+46,2024-11-26,Outreach,Clicked,,False,False,False
+46,2024-09-21,Pricing,No Response,,True,True,True
+46,2024-07-15,Contract,Clicked,,True,False,True
+46,2024-07-21,Pricing,No Response,,False,False,True
+46,2024-08-01,Outreach,Clicked,23.0,True,True,True
+46,2024-10-18,Outreach,Replied,13.0,True,False,False
+46,2024-12-06,Documentation,Replied,,True,True,False
+46,2024-09-23,Documentation,No Response,,False,False,True
+46,2024-11-20,Follow-up,Clicked,,True,False,False
+46,2024-10-22,Contract,Replied,142.0,False,False,True
+46,2024-06-25,Proposal,No Response,,False,True,True
+46,2024-09-24,Proposal,Clicked,50.0,False,False,True
+47,2024-10-02,Proposal,Replied,94.0,False,True,False
+47,2024-05-13,Contract,Replied,,False,True,False
+47,2024-07-14,Contract,Opened,120.0,False,False,True
+47,2024-09-03,Contract,Opened,94.0,True,True,True
+47,2024-06-07,Outreach,No Response,14.0,False,True,False
+48,2025-05-06,Proposal,Clicked,85.0,False,True,False
+48,2025-04-29,Outreach,No Response,,True,True,True
+48,2025-04-25,Follow-up,Replied,44.0,False,True,False
+48,2025-05-22,Follow-up,No Response,162.0,True,False,False
+48,2025-05-10,Proposal,Opened,,False,True,False
+48,2025-01-09,Outreach,Opened,22.0,True,False,True
+48,2025-01-30,Outreach,Clicked,,False,True,True
+48,2025-03-06,Contract,Clicked,79.0,True,False,False
+49,2024-11-19,Follow-up,Replied,,True,True,False
+49,2024-10-30,Follow-up,Replied,,False,False,True
+49,2025-01-12,Proposal,Replied,,False,True,True
+49,2025-02-05,Documentation,Clicked,111.0,False,False,True
+49,2024-12-05,Contract,Replied,131.0,True,False,True
+49,2025-01-06,Proposal,Opened,132.0,True,False,True
+49,2025-01-06,Pricing,Replied,,False,True,False
+49,2025-03-07,Outreach,Replied,40.0,False,False,False
+49,2024-12-04,Contract,Opened,91.0,False,True,False
+49,2025-01-26,Follow-up,Opened,,False,False,False
+50,2024-09-29,Proposal,Replied,,False,False,False
+50,2024-08-08,Follow-up,Opened,,False,False,False
+50,2024-12-27,Outreach,Clicked,76.0,True,True,True
+50,2025-01-14,Proposal,Opened,79.0,True,False,False
+50,2024-11-07,Follow-up,No Response,168.0,True,True,True
+50,2024-10-14,Proposal,Opened,60.0,True,False,True
+50,2025-01-30,Follow-up,Clicked,,True,False,True
+50,2024-10-25,Outreach,No Response,,True,False,False
+50,2024-11-24,Contract,Clicked,99.0,True,False,True
+50,2024-11-08,Proposal,Replied,,False,True,False
+50,2024-12-01,Contract,Opened,155.0,True,True,False
+50,2024-10-29,Proposal,Opened,,True,True,True
+50,2024-12-03,Follow-up,Opened,77.0,False,True,False
+50,2024-11-04,Contract,Clicked,,True,False,False
+50,2024-11-05,Contract,No Response,66.0,False,True,True
+50,2024-11-07,Contract,Opened,,True,False,True
+50,2025-01-12,Documentation,Opened,81.0,True,False,False
+50,2024-07-31,Documentation,No Response,,True,False,False
+50,2024-10-03,Contract,Opened,,False,False,False
+50,2024-12-12,Proposal,Opened,108.0,False,True,True
+51,2025-01-27,Contract,Replied,131.0,False,False,True
+51,2025-02-28,Proposal,Opened,125.0,False,False,True
+51,2025-04-04,Contract,Replied,,False,False,False
+51,2024-11-08,Pricing,Replied,75.0,False,False,True
+51,2025-02-24,Proposal,Replied,152.0,True,False,True
+52,2025-02-20,Follow-up,Opened,32.0,True,False,False
+52,2025-02-27,Proposal,No Response,134.0,False,True,True
+52,2025-03-12,Proposal,Opened,155.0,True,False,True
+52,2025-03-15,Contract,Replied,,False,True,True
+52,2025-02-22,Contract,Opened,,True,True,False
+52,2025-03-06,Pricing,Clicked,95.0,False,True,False
+52,2025-02-27,Contract,Clicked,,True,False,True
+52,2025-06-10,Proposal,Replied,104.0,True,True,False
+52,2025-06-05,Follow-up,Replied,,False,False,True
+52,2025-02-13,Follow-up,Opened,,True,True,False
+52,2025-06-23,Contract,No Response,,False,False,False
+52,2025-05-10,Outreach,Replied,,False,False,False
+52,2025-01-26,Documentation,No Response,136.0,True,False,False
+52,2025-04-01,Outreach,Opened,,False,True,True
+52,2025-05-03,Proposal,Replied,,False,False,False
+52,2024-12-26,Follow-up,Clicked,,False,False,True
+52,2025-03-01,Pricing,No Response,96.0,True,False,True
+53,2024-12-16,Follow-up,Clicked,146.0,False,True,True
+53,2025-03-13,Documentation,No Response,,True,False,False
+53,2024-11-26,Proposal,Opened,,False,True,False
+53,2025-01-10,Documentation,Replied,,True,True,False
+53,2024-11-18,Outreach,Replied,,True,True,False
+53,2025-02-01,Contract,No Response,,False,True,True
+53,2025-02-11,Follow-up,Clicked,153.0,False,True,False
+53,2025-02-09,Follow-up,Clicked,,True,False,True
+54,2025-04-12,Pricing,Clicked,117.0,False,True,True
+54,2025-03-22,Contract,Clicked,,True,False,True
+54,2024-11-29,Follow-up,No Response,,True,False,True
+54,2025-01-06,Documentation,Opened,,True,True,False
+54,2025-05-25,Outreach,Opened,104.0,False,False,True
+54,2025-03-08,Proposal,Opened,112.0,False,True,False
+54,2025-03-03,Contract,Opened,,False,False,False
+54,2024-12-23,Outreach,Clicked,,True,True,False
+54,2025-03-07,Contract,Replied,62.0,False,True,False
+54,2024-12-16,Proposal,Opened,,False,True,False
+54,2025-02-17,Proposal,No Response,,False,False,False
+54,2025-04-23,Outreach,Clicked,133.0,False,True,True
+54,2025-02-24,Pricing,Replied,,False,True,False
+54,2025-03-23,Contract,No Response,,True,True,True
+54,2025-04-26,Proposal,No Response,,True,True,True
+54,2025-04-20,Proposal,Clicked,66.0,False,False,False
+54,2025-04-29,Follow-up,Replied,150.0,False,False,False
+55,2025-03-04,Follow-up,No Response,123.0,False,True,True
+55,2024-12-16,Follow-up,Replied,57.0,True,False,True
+55,2025-03-05,Follow-up,Replied,,False,True,True
+55,2025-03-28,Follow-up,Replied,102.0,True,False,True
+55,2024-11-28,Pricing,Opened,114.0,True,True,False
+55,2025-03-28,Follow-up,Clicked,116.0,True,True,False
+55,2025-02-08,Proposal,Opened,16.0,True,False,True
+55,2024-11-12,Follow-up,Clicked,,False,True,True
+55,2024-12-10,Contract,Opened,122.0,True,False,True
+55,2025-01-19,Follow-up,Opened,153.0,False,False,True
+55,2025-02-15,Documentation,Opened,,True,False,True
+55,2024-11-23,Documentation,Replied,,True,False,False
+55,2025-01-29,Proposal,Replied,,True,False,False
+55,2025-03-12,Pricing,Replied,,True,True,False
+55,2024-09-21,Proposal,No Response,,True,True,True
+55,2025-01-08,Contract,Replied,113.0,False,True,True
+55,2024-10-17,Follow-up,Clicked,,False,False,False
+55,2024-10-16,Contract,Replied,146.0,True,False,True
+55,2024-11-08,Documentation,Clicked,156.0,True,False,False
+55,2025-03-06,Pricing,No Response,,True,False,False
+56,2024-08-06,Follow-up,Replied,,False,False,False
+56,2024-07-21,Documentation,No Response,,True,False,True
+56,2024-08-16,Proposal,Clicked,,False,True,True
+56,2024-06-26,Contract,Replied,,False,True,False
+56,2024-08-21,Documentation,Replied,55.0,False,False,True
+56,2024-05-23,Follow-up,Clicked,,False,False,True
+56,2024-10-19,Documentation,No Response,71.0,False,True,True
+56,2024-05-18,Contract,Replied,,False,False,False
+56,2024-06-01,Documentation,Clicked,83.0,False,True,True
+56,2024-10-01,Proposal,Clicked,112.0,True,False,False
+56,2024-09-23,Pricing,Replied,35.0,True,False,False
+56,2024-08-26,Contract,Clicked,82.0,False,True,False
+56,2024-08-04,Proposal,Clicked,,False,True,True
+56,2024-06-03,Contract,No Response,,False,False,True
+57,2024-08-20,Proposal,Opened,,True,False,False
+57,2024-06-22,Pricing,Replied,19.0,True,True,True
+57,2024-08-20,Outreach,No Response,18.0,False,False,False
+57,2024-08-04,Contract,Clicked,,True,True,False
+57,2024-08-05,Pricing,No Response,102.0,False,True,False
+57,2024-04-15,Outreach,Clicked,,False,True,False
+58,2024-12-06,Contract,Replied,,True,False,True
+58,2024-08-27,Follow-up,Clicked,,True,True,True
+58,2024-11-23,Pricing,Opened,138.0,False,True,False
+58,2024-09-28,Follow-up,Clicked,77.0,True,False,False
+58,2024-09-07,Follow-up,Replied,35.0,False,True,False
+58,2024-07-16,Documentation,Clicked,,True,False,False
+58,2024-10-20,Follow-up,Clicked,,True,True,True
+58,2024-11-16,Pricing,Opened,53.0,True,False,False
+58,2024-09-29,Documentation,Clicked,23.0,False,False,False
+58,2024-11-17,Outreach,No Response,1.0,False,False,False
+58,2024-08-04,Proposal,Replied,,True,False,False
+58,2024-09-06,Contract,Opened,,False,True,False
+59,2024-11-09,Follow-up,Clicked,144.0,True,True,True
+59,2024-12-03,Contract,No Response,15.0,True,False,False
+59,2025-04-05,Documentation,Clicked,,True,True,True
+59,2025-05-06,Contract,Clicked,,True,True,True
+59,2025-03-05,Follow-up,Replied,,False,False,False
+59,2024-11-05,Outreach,Replied,120.0,True,True,False
+59,2024-11-09,Pricing,No Response,40.0,True,True,False
+59,2024-12-25,Outreach,No Response,28.0,False,False,False
+59,2025-03-15,Documentation,Clicked,79.0,False,False,False
+59,2024-11-30,Proposal,Replied,122.0,False,True,True
+59,2024-12-24,Pricing,Clicked,57.0,True,True,False
+59,2025-01-09,Pricing,Opened,57.0,False,True,False
+59,2025-01-21,Contract,No Response,,True,False,False
+59,2025-02-01,Contract,Clicked,98.0,True,True,True
+59,2024-11-01,Follow-up,Opened,41.0,False,False,True
+60,2024-11-17,Proposal,Clicked,,False,True,False
+60,2024-12-23,Proposal,No Response,71.0,False,False,True
+60,2024-09-20,Proposal,No Response,,True,False,False
+60,2024-08-02,Proposal,No Response,139.0,True,True,True
+60,2024-11-11,Outreach,Opened,,True,False,False
+60,2024-11-09,Documentation,Opened,101.0,True,True,True
+60,2024-07-21,Follow-up,Replied,144.0,True,False,True
+60,2025-01-10,Pricing,Clicked,,True,True,True
+60,2024-12-26,Contract,Clicked,138.0,False,True,False
+60,2024-07-29,Documentation,Replied,,False,False,False
+60,2024-10-07,Follow-up,Replied,19.0,False,False,True
+60,2025-01-20,Pricing,Opened,105.0,True,True,False
+60,2024-08-27,Follow-up,No Response,165.0,False,False,True
+60,2024-09-18,Proposal,Opened,70.0,True,False,True
+60,2025-01-18,Contract,Clicked,113.0,True,False,False
+60,2024-07-19,Contract,Opened,,True,False,True
+60,2025-01-02,Documentation,Replied,138.0,False,True,True
+60,2025-01-17,Proposal,Replied,97.0,False,True,False
+60,2024-11-03,Pricing,Clicked,,False,True,True
+60,2024-08-08,Contract,Replied,126.0,False,False,True
+61,2024-06-24,Contract,Replied,,False,False,False
+61,2024-07-14,Outreach,Opened,124.0,True,False,True
+61,2024-09-12,Documentation,Replied,124.0,False,False,True
+61,2024-09-15,Outreach,Opened,30.0,True,False,False
+61,2024-07-23,Contract,Opened,,False,False,True
+61,2024-07-25,Contract,No Response,55.0,True,True,False
+61,2024-05-09,Proposal,No Response,116.0,False,False,False
+61,2024-07-13,Follow-up,Replied,,True,False,False
+62,2024-12-10,Follow-up,Replied,,False,True,False
+62,2024-11-21,Proposal,Replied,81.0,False,True,True
+62,2025-04-11,Documentation,Replied,,True,False,True
+62,2025-01-05,Contract,No Response,,False,False,False
+62,2024-12-09,Follow-up,Replied,28.0,True,False,False
+62,2025-03-22,Pricing,Clicked,,True,True,True
+62,2024-11-22,Contract,No Response,,True,False,False
+62,2025-02-08,Follow-up,No Response,75.0,True,False,True
+62,2025-02-20,Outreach,Clicked,70.0,True,False,True
+62,2025-04-25,Follow-up,Clicked,112.0,True,True,True
+62,2025-01-13,Follow-up,Opened,,False,False,True
+62,2025-02-12,Follow-up,No Response,,False,False,False
+62,2025-02-17,Proposal,Replied,81.0,False,True,True
+63,2025-04-26,Follow-up,Clicked,129.0,False,False,True
+63,2025-04-01,Follow-up,Replied,119.0,False,True,False
+63,2025-04-05,Documentation,No Response,,True,True,True
+63,2025-03-21,Documentation,Opened,,False,True,True
+63,2025-04-21,Proposal,Opened,,False,True,False
+63,2025-02-16,Contract,Clicked,,True,False,False
+63,2025-03-15,Contract,Replied,,True,False,True
+63,2025-03-16,Contract,Replied,156.0,True,False,True
+63,2024-11-16,Pricing,Opened,,True,True,True
+63,2025-03-31,Follow-up,Clicked,166.0,False,True,False
+63,2024-11-20,Outreach,No Response,,False,False,False
+63,2024-12-03,Proposal,Clicked,79.0,False,True,False
+63,2025-01-01,Documentation,Opened,66.0,False,True,True
+63,2025-01-26,Contract,Opened,,False,True,False
+63,2024-11-03,Pricing,Opened,95.0,True,True,True
+64,2024-04-09,Proposal,No Response,,True,False,True
+64,2024-05-22,Follow-up,No Response,137.0,True,False,True
+64,2024-09-29,Follow-up,Replied,112.0,True,True,False
+64,2024-04-15,Pricing,Opened,79.0,False,True,False
+64,2024-09-29,Follow-up,Clicked,127.0,True,True,False
+65,2025-02-23,Pricing,No Response,,True,True,False
+65,2024-11-10,Proposal,Clicked,125.0,True,False,True
+65,2024-12-08,Outreach,No Response,133.0,True,False,False
+65,2025-01-25,Contract,Clicked,,False,True,False
+65,2024-10-28,Proposal,No Response,,False,False,True
+65,2025-01-11,Outreach,No Response,82.0,False,False,False
+65,2025-01-13,Proposal,Opened,48.0,True,False,True
+65,2025-02-19,Proposal,Opened,12.0,False,False,True
+65,2024-12-07,Pricing,Opened,,True,False,True
+65,2024-11-01,Outreach,No Response,56.0,False,True,True
+65,2025-01-12,Follow-up,Opened,97.0,True,True,False
+65,2024-09-09,Follow-up,Replied,99.0,True,False,False
+65,2024-09-19,Follow-up,Clicked,159.0,False,False,False
+65,2024-10-30,Contract,Replied,,True,False,False
+65,2024-12-13,Proposal,Clicked,,False,True,False
+65,2024-09-18,Contract,No Response,57.0,True,True,True
+65,2024-10-18,Documentation,Opened,137.0,False,True,False
+65,2025-03-01,Contract,No Response,,False,False,False
+65,2024-10-05,Outreach,No Response,22.0,False,True,True
+66,2024-09-19,Documentation,Opened,58.0,True,False,True
+66,2024-06-12,Contract,Opened,111.0,False,False,True
+66,2024-09-12,Pricing,Opened,53.0,False,True,True
+66,2024-06-30,Proposal,Replied,89.0,False,True,True
+66,2024-08-30,Documentation,Clicked,,True,True,True
+66,2024-10-29,Follow-up,Replied,,True,False,True
+67,2025-04-21,Pricing,Replied,36.0,False,True,True
+67,2025-05-12,Outreach,No Response,158.0,True,False,False
+67,2024-11-27,Follow-up,Opened,1.0,False,True,True
+67,2025-02-25,Pricing,Opened,160.0,True,True,True
+67,2025-05-03,Documentation,No Response,,False,False,True
+67,2025-05-11,Documentation,Replied,,False,False,True
+67,2025-03-14,Pricing,Replied,36.0,False,True,False
+67,2025-01-22,Follow-up,Replied,110.0,False,True,True
+67,2025-03-15,Documentation,Clicked,,True,False,True
+67,2025-03-01,Documentation,No Response,,False,False,False
+67,2025-03-16,Proposal,Replied,,False,True,True
+67,2025-01-19,Follow-up,Clicked,168.0,False,False,False
+68,2025-07-29,Proposal,Clicked,,True,False,True
+68,2025-07-03,Contract,No Response,,False,True,True
+68,2025-04-11,Proposal,Clicked,,False,True,False
+68,2025-02-21,Contract,Clicked,,True,False,True
+68,2025-07-29,Documentation,Clicked,105.0,False,False,True
+68,2025-08-23,Follow-up,No Response,,True,True,True
+68,2025-03-08,Outreach,Opened,84.0,True,False,False
+68,2025-04-07,Contract,Clicked,78.0,True,False,False
+68,2025-07-14,Documentation,No Response,,True,False,False
+68,2025-03-12,Pricing,Clicked,41.0,False,True,False
+68,2025-03-27,Pricing,No Response,,True,True,True
+68,2025-06-08,Outreach,Opened,97.0,False,False,False
+68,2025-03-30,Outreach,Replied,,True,False,True
+68,2025-06-20,Contract,Replied,,True,False,True
+68,2025-04-01,Follow-up,Replied,,True,True,True
+68,2025-07-27,Proposal,Replied,90.0,False,True,False
+69,2024-07-24,Proposal,Clicked,,True,False,False
+69,2024-06-03,Outreach,Clicked,,False,False,False
+69,2024-07-17,Outreach,Replied,,True,False,True
+69,2024-05-25,Pricing,Opened,77.0,False,True,False
+69,2024-07-28,Documentation,Opened,,False,False,False
+69,2024-08-31,Documentation,No Response,,True,False,False
+69,2024-09-10,Follow-up,No Response,,False,True,False
+69,2024-10-10,Outreach,Replied,5.0,True,True,True
+69,2024-05-11,Follow-up,Replied,39.0,True,True,True
+69,2024-04-24,Contract,Opened,,True,True,False
+70,2024-09-17,Outreach,Opened,35.0,True,True,True
+70,2024-04-23,Contract,Opened,110.0,True,True,True
+70,2024-09-30,Outreach,No Response,,True,False,True
+70,2024-09-28,Documentation,Clicked,,False,True,False
+70,2024-05-17,Pricing,Opened,45.0,True,False,True
+70,2024-08-16,Pricing,Clicked,19.0,True,True,False
+70,2024-05-28,Follow-up,No Response,,False,False,True
+70,2024-07-18,Proposal,Replied,135.0,True,False,False
+70,2024-05-11,Outreach,Opened,126.0,False,True,False
+70,2024-04-20,Contract,No Response,22.0,False,False,True
+70,2024-08-23,Proposal,Replied,,False,False,False
+70,2024-08-05,Proposal,No Response,,True,True,True
+70,2024-04-10,Contract,Replied,,False,False,False
+70,2024-07-12,Documentation,No Response,,True,True,False
+70,2024-07-16,Outreach,Clicked,,False,True,False
+71,2024-11-20,Documentation,Clicked,151.0,True,True,True
+71,2024-11-21,Documentation,No Response,69.0,False,True,True
+71,2025-03-24,Documentation,Clicked,,False,True,True
+71,2025-03-21,Pricing,No Response,,False,True,False
+71,2025-05-06,Outreach,Replied,17.0,False,False,False
+71,2024-12-23,Follow-up,No Response,106.0,False,True,False
+71,2025-04-27,Follow-up,Replied,,False,True,True
+71,2025-04-01,Proposal,Replied,,True,False,False
+71,2024-12-03,Outreach,No Response,,False,True,True
+71,2025-02-08,Contract,Clicked,,False,False,False
+71,2025-04-13,Proposal,Clicked,82.0,True,True,True
+71,2025-03-22,Pricing,No Response,80.0,True,False,True
+71,2025-04-25,Proposal,Opened,,False,False,True
+71,2025-03-12,Documentation,Clicked,,True,False,True
+71,2025-03-18,Follow-up,Clicked,83.0,False,False,True
+71,2025-01-25,Proposal,No Response,,True,True,True
+72,2025-01-05,Outreach,Clicked,,True,False,False
+72,2024-12-28,Outreach,Replied,,True,True,False
+72,2024-07-08,Outreach,No Response,94.0,False,True,False
+72,2024-12-09,Documentation,Clicked,,False,True,False
+72,2024-10-26,Proposal,Clicked,,False,True,True
+72,2024-09-22,Outreach,Opened,83.0,False,False,True
+72,2024-09-20,Contract,No Response,160.0,False,False,False
+72,2024-08-16,Proposal,Opened,,False,True,True
+72,2025-01-03,Contract,Clicked,,True,True,True
+72,2024-08-09,Outreach,Clicked,23.0,False,False,False
+72,2024-07-22,Documentation,Replied,126.0,False,True,False
+72,2024-12-13,Documentation,Clicked,53.0,False,True,True
+72,2024-09-06,Follow-up,Clicked,165.0,True,True,True
+72,2024-11-01,Outreach,Opened,59.0,True,True,False
+73,2025-02-02,Contract,No Response,130.0,False,False,True
+73,2025-04-15,Contract,No Response,10.0,True,True,True
+73,2024-12-23,Pricing,No Response,89.0,True,False,True
+73,2025-02-04,Follow-up,Clicked,160.0,False,False,False
+73,2025-03-05,Documentation,Clicked,155.0,False,False,True
+73,2025-01-17,Proposal,No Response,166.0,False,False,True
+73,2025-02-17,Pricing,No Response,47.0,True,True,False
+73,2024-11-22,Contract,Clicked,145.0,False,True,False
+73,2025-01-26,Documentation,Opened,145.0,False,True,True
+73,2025-01-13,Outreach,Clicked,85.0,True,False,False
+73,2025-04-28,Proposal,No Response,,True,False,False
+73,2025-03-18,Pricing,Replied,19.0,True,True,True
+73,2025-04-02,Outreach,Opened,,True,False,False
+73,2025-01-31,Contract,Clicked,13.0,False,True,True
+73,2025-02-11,Contract,Replied,71.0,False,True,False
+74,2024-07-01,Proposal,Clicked,,False,True,True
+74,2024-11-10,Contract,Opened,,True,True,True
+74,2024-06-23,Contract,Clicked,,False,False,True
+74,2024-11-27,Pricing,No Response,39.0,True,True,False
+74,2024-11-21,Documentation,Opened,127.0,False,False,False
+74,2024-07-15,Outreach,Opened,71.0,False,False,True
+75,2024-12-23,Contract,Replied,60.0,False,True,True
+75,2025-05-10,Documentation,No Response,12.0,False,False,True
+75,2025-05-19,Proposal,No Response,,True,False,False
+75,2025-06-20,Pricing,Clicked,,False,False,True
+75,2025-05-14,Documentation,Replied,,False,False,True
+75,2025-06-07,Documentation,No Response,,False,True,False
+75,2025-01-21,Proposal,Replied,,False,True,True
+75,2025-03-14,Pricing,Clicked,,True,True,True
+75,2025-06-12,Documentation,Opened,,True,True,True
+75,2025-05-13,Outreach,Replied,58.0,False,False,True
+75,2025-03-10,Contract,Replied,,False,True,False
+75,2025-03-31,Contract,Opened,163.0,False,True,True
+75,2025-06-18,Outreach,Opened,,True,True,False
+76,2024-10-17,Proposal,Clicked,48.0,True,True,True
+76,2024-09-19,Outreach,Clicked,18.0,True,False,False
+76,2024-08-05,Documentation,Replied,,True,False,False
+76,2024-10-13,Proposal,Clicked,,False,False,True
+76,2024-12-26,Documentation,Opened,,False,False,True
+76,2024-09-09,Contract,No Response,,True,False,False
+76,2024-12-28,Documentation,Opened,,True,False,True
+76,2024-11-04,Proposal,Opened,62.0,True,False,False
+76,2024-09-30,Follow-up,No Response,82.0,False,False,True
+76,2024-12-10,Documentation,Opened,32.0,True,False,True
+76,2024-11-11,Follow-up,No Response,,False,True,False
+76,2024-12-02,Outreach,No Response,115.0,False,True,True
+77,2024-12-17,Proposal,No Response,39.0,True,True,False
+77,2024-11-18,Follow-up,Opened,,True,False,True
+77,2024-10-02,Follow-up,Clicked,,False,True,False
+77,2025-01-12,Outreach,Opened,35.0,True,True,False
+77,2024-11-21,Proposal,No Response,134.0,False,True,False
+77,2024-11-15,Outreach,Replied,,False,True,True
+77,2024-08-08,Proposal,Replied,,False,True,True
+77,2024-08-16,Outreach,Clicked,146.0,True,True,False
+77,2025-01-01,Pricing,Replied,,False,True,True
+77,2024-12-13,Documentation,Opened,59.0,True,True,False
+77,2024-08-20,Contract,No Response,95.0,True,True,True
+77,2024-11-28,Contract,Replied,77.0,True,False,True
+77,2024-11-16,Follow-up,Clicked,,False,False,True
+77,2024-08-11,Follow-up,No Response,37.0,True,True,True
+78,2025-03-13,Outreach,Clicked,160.0,False,False,True
+78,2025-01-08,Documentation,Opened,,True,False,False
+78,2024-11-09,Follow-up,Replied,,False,True,True
+78,2025-03-04,Pricing,No Response,61.0,False,False,True
+78,2025-02-20,Pricing,Opened,,True,True,True
+78,2025-04-15,Outreach,Replied,,False,False,False
+78,2025-04-17,Proposal,Replied,,False,False,False
+78,2025-02-08,Contract,Clicked,,False,True,False
+78,2025-01-28,Pricing,Opened,,False,False,False
+78,2025-04-03,Pricing,Clicked,,False,True,True
+78,2025-01-30,Proposal,Clicked,,False,False,False
+78,2025-04-04,Documentation,Clicked,75.0,True,False,False
+78,2024-12-24,Documentation,Clicked,74.0,True,True,False
+78,2024-12-18,Contract,No Response,,True,False,False
+78,2025-05-04,Proposal,No Response,,True,False,True
+78,2025-01-05,Outreach,No Response,,True,True,True
+78,2025-01-06,Documentation,No Response,,False,True,False
+78,2024-11-15,Documentation,No Response,121.0,False,False,False
+78,2024-12-02,Follow-up,Clicked,92.0,True,True,True
+78,2025-01-12,Outreach,Replied,24.0,False,True,True
+79,2024-04-16,Outreach,Replied,,False,False,True
+79,2024-06-12,Follow-up,Replied,,True,True,True
+79,2024-09-02,Pricing,Replied,43.0,False,True,True
+79,2024-05-25,Outreach,Replied,,True,True,True
+79,2024-07-27,Follow-up,Clicked,,True,True,True
+79,2024-06-24,Outreach,Opened,78.0,False,False,False
+80,2025-02-01,Outreach,Opened,,False,False,True
+80,2025-06-11,Documentation,No Response,138.0,False,True,False
+80,2025-03-25,Pricing,Replied,,True,False,False
+80,2025-03-27,Pricing,Clicked,,True,True,False
+80,2025-01-16,Documentation,Clicked,80.0,False,False,False
+80,2025-02-05,Contract,Replied,97.0,False,True,True
+80,2025-05-18,Contract,Opened,,True,False,False
+80,2025-03-06,Documentation,Opened,,False,False,False
+80,2024-12-26,Documentation,Replied,,True,False,False
+80,2025-02-08,Documentation,Clicked,56.0,True,True,False
+80,2025-03-07,Outreach,Clicked,40.0,True,True,False
+81,2025-06-08,Proposal,No Response,75.0,True,False,False
+81,2025-03-13,Follow-up,No Response,,True,True,True
+81,2025-02-17,Pricing,Opened,73.0,False,False,True
+81,2025-03-26,Outreach,Clicked,17.0,True,False,True
+81,2025-06-10,Outreach,No Response,,True,True,True
+81,2025-03-28,Outreach,Replied,69.0,True,True,False
+81,2025-02-28,Follow-up,Opened,,True,True,True
+82,2025-08-17,Proposal,No Response,116.0,True,True,True
+82,2025-05-04,Contract,Opened,96.0,True,True,False
+82,2025-07-19,Pricing,No Response,,False,False,False
+82,2025-08-26,Pricing,No Response,,False,True,False
+82,2025-04-25,Outreach,Clicked,153.0,False,False,True
+82,2025-08-25,Documentation,No Response,,False,False,True
+82,2025-06-12,Documentation,Clicked,55.0,False,True,False
+82,2025-08-22,Contract,Clicked,,False,True,True
+82,2025-03-28,Follow-up,No Response,,False,False,False
+82,2025-09-22,Documentation,Replied,118.0,True,False,True
+82,2025-05-25,Follow-up,Opened,,False,True,False
+82,2025-07-21,Documentation,No Response,153.0,False,False,False
+82,2025-04-03,Documentation,Opened,,False,True,False
+82,2025-07-31,Follow-up,Opened,37.0,False,True,True
+82,2025-08-01,Follow-up,Replied,114.0,False,False,False
+82,2025-06-20,Pricing,Replied,,False,True,True
+83,2024-09-27,Documentation,Opened,39.0,False,False,False
+83,2024-11-29,Contract,Replied,36.0,True,True,False
+83,2024-08-04,Documentation,Clicked,11.0,False,True,True
+83,2024-07-14,Documentation,Clicked,,True,False,False
+83,2024-07-18,Outreach,Opened,9.0,False,False,True
+83,2024-07-21,Documentation,Clicked,,True,True,False
+83,2024-08-21,Pricing,Replied,,False,False,False
+83,2024-10-07,Follow-up,Replied,57.0,True,False,False
+83,2024-08-03,Proposal,Replied,,False,True,False
+83,2024-07-30,Outreach,Clicked,56.0,True,False,True
+83,2024-06-20,Contract,Replied,,False,False,False
+83,2024-08-10,Outreach,Clicked,159.0,False,True,False
+83,2024-06-09,Documentation,No Response,,True,False,False
+83,2024-06-02,Proposal,Replied,78.0,True,False,False
+83,2024-09-04,Pricing,Clicked,,False,True,False
+83,2024-07-27,Pricing,Clicked,,True,False,False
+83,2024-06-16,Outreach,Opened,2.0,True,False,False
+83,2024-06-18,Contract,Clicked,0.0,False,True,True
+83,2024-06-29,Proposal,Replied,,True,True,True
+84,2024-10-07,Outreach,Opened,10.0,True,True,True
+84,2024-10-23,Documentation,Opened,,False,True,False
+84,2024-08-19,Outreach,No Response,,True,True,False
+84,2024-12-17,Follow-up,Replied,100.0,False,True,False
+84,2024-11-07,Proposal,Replied,,False,False,True
+84,2024-10-02,Contract,Replied,61.0,False,True,True
+84,2024-07-24,Outreach,Opened,37.0,True,False,True
+84,2024-08-22,Contract,Opened,,False,False,True
+84,2025-01-14,Documentation,No Response,,True,False,True
+84,2024-11-13,Contract,Opened,,True,False,True
+84,2024-10-11,Outreach,Opened,64.0,False,True,False
+84,2024-11-10,Contract,No Response,,False,True,False
+84,2025-01-21,Contract,No Response,,True,True,True
+84,2024-09-17,Documentation,Opened,,False,True,True
+85,2025-01-06,Pricing,No Response,,True,True,False
+85,2024-11-15,Outreach,Replied,,False,False,True
+85,2024-12-02,Documentation,Clicked,37.0,False,False,False
+85,2025-03-21,Pricing,Clicked,,True,False,False
+85,2025-03-23,Documentation,Opened,,False,True,False
+85,2025-04-05,Contract,Opened,,False,False,True
+85,2025-01-25,Pricing,Clicked,,False,False,True
+85,2025-01-03,Contract,Replied,,False,True,True
+85,2024-11-16,Follow-up,No Response,101.0,True,False,True
+86,2025-04-28,Pricing,No Response,128.0,False,True,False
+86,2025-07-15,Follow-up,Replied,60.0,False,False,True
+86,2025-07-06,Contract,Clicked,109.0,True,False,True
+86,2025-06-19,Outreach,Opened,66.0,True,False,False
+86,2025-06-03,Follow-up,No Response,41.0,False,True,False
+86,2025-05-07,Pricing,Opened,39.0,True,True,True
+86,2025-03-05,Proposal,Clicked,115.0,False,True,False
+87,2025-02-17,Contract,Replied,91.0,True,False,True
+87,2025-01-24,Follow-up,Replied,158.0,True,True,True
+87,2024-11-23,Proposal,Clicked,122.0,False,True,False
+87,2025-01-24,Documentation,Opened,,True,True,True
+87,2025-03-24,Contract,No Response,58.0,False,False,False
+87,2025-01-07,Contract,Replied,10.0,True,False,True
+87,2024-10-17,Pricing,Replied,95.0,False,False,True
+87,2025-01-05,Documentation,Opened,24.0,True,True,False
+88,2025-08-05,Pricing,Replied,159.0,True,False,True
+88,2025-06-04,Pricing,No Response,,True,True,True
+88,2025-06-01,Contract,Clicked,,False,True,False
+88,2025-06-12,Documentation,Opened,,True,False,False
+88,2025-09-22,Proposal,No Response,6.0,False,False,True
+88,2025-09-15,Outreach,Clicked,92.0,True,True,False
+88,2025-06-10,Proposal,Opened,147.0,True,True,True
+88,2025-03-29,Proposal,Replied,140.0,False,False,True
+88,2025-06-28,Outreach,Replied,,True,False,False
+88,2025-09-22,Outreach,Clicked,24.0,True,True,False
+88,2025-03-27,Documentation,Replied,,True,False,True
+88,2025-08-15,Pricing,Clicked,85.0,True,True,True
+88,2025-08-25,Outreach,No Response,32.0,True,True,False
+88,2025-03-18,Contract,Replied,126.0,True,True,False
+88,2025-05-10,Pricing,No Response,135.0,False,False,True
+88,2025-06-28,Pricing,No Response,,False,True,True
+88,2025-09-13,Documentation,Replied,,True,True,False
+88,2025-08-15,Follow-up,Replied,147.0,True,True,True
+88,2025-04-19,Contract,Opened,63.0,True,True,False
+88,2025-04-20,Follow-up,Replied,147.0,True,True,True
+89,2024-11-18,Outreach,Replied,114.0,True,True,True
+89,2024-11-07,Proposal,No Response,,False,False,True
+89,2025-01-14,Follow-up,Clicked,,False,True,True
+89,2024-12-08,Documentation,Replied,,True,False,True
+89,2024-11-23,Documentation,Clicked,15.0,False,False,True
+90,2025-01-14,Proposal,Clicked,,False,True,False
+90,2024-12-20,Documentation,Opened,,False,False,True
+90,2025-04-11,Follow-up,Replied,,False,False,True
+90,2025-04-18,Follow-up,No Response,4.0,True,False,False
+90,2025-02-11,Pricing,Clicked,68.0,False,False,True
+90,2025-02-24,Contract,Replied,,True,True,True
+90,2025-02-16,Proposal,Replied,142.0,True,False,True
+90,2025-01-24,Outreach,Replied,,False,True,False
+90,2025-02-04,Follow-up,Opened,,False,False,False
+90,2025-05-16,Follow-up,No Response,,True,False,False
+90,2025-05-25,Follow-up,Clicked,,True,False,False
+90,2025-04-16,Follow-up,Replied,,True,False,True
+90,2025-06-11,Outreach,Opened,59.0,False,True,True
+90,2025-04-15,Documentation,Opened,140.0,False,True,True
+90,2025-06-23,Follow-up,Clicked,,True,True,False
+90,2024-12-19,Pricing,No Response,71.0,False,True,True
+90,2025-03-14,Follow-up,Opened,64.0,True,True,False
+90,2025-06-11,Proposal,Clicked,125.0,True,False,False
+91,2024-11-21,Pricing,Clicked,,True,False,False
+91,2025-01-29,Documentation,Clicked,24.0,True,False,True
+91,2024-12-13,Follow-up,Clicked,45.0,True,True,True
+91,2024-12-02,Proposal,No Response,115.0,True,True,True
+91,2024-11-29,Contract,Clicked,,False,False,True
+91,2025-04-24,Outreach,Clicked,,False,True,True
+91,2025-02-02,Outreach,Clicked,,True,True,True
+91,2024-12-23,Outreach,Clicked,,True,False,True
+92,2024-08-02,Contract,Replied,,True,True,False
+92,2024-09-11,Follow-up,No Response,,False,False,True
+92,2024-11-29,Outreach,Clicked,,False,False,False
+92,2024-06-18,Pricing,Opened,13.0,True,True,False
+92,2024-09-04,Contract,Clicked,132.0,True,True,True
+92,2024-07-26,Outreach,Opened,137.0,True,False,True
+92,2024-07-31,Proposal,Replied,45.0,True,False,False
+92,2024-07-17,Follow-up,Clicked,132.0,True,False,True
+92,2024-09-11,Contract,Opened,,False,True,False
+92,2024-08-20,Outreach,Opened,6.0,True,True,True
+93,2024-10-11,Contract,Opened,48.0,False,True,False
+93,2025-01-14,Contract,Replied,161.0,True,True,False
+93,2024-11-18,Documentation,Opened,,False,False,True
+93,2024-09-20,Pricing,Clicked,,False,False,True
+93,2024-10-07,Follow-up,Replied,80.0,False,False,True
+93,2025-01-06,Documentation,No Response,11.0,True,True,False
+93,2024-10-31,Documentation,Replied,,True,False,False
+93,2025-01-12,Follow-up,No Response,,True,True,False
+93,2024-10-07,Proposal,Clicked,,False,True,False
+93,2024-11-17,Follow-up,No Response,141.0,True,False,True
+93,2024-12-12,Follow-up,Clicked,,False,False,True
+93,2025-02-05,Contract,Clicked,16.0,True,False,True
+93,2024-09-30,Documentation,Replied,142.0,True,False,False
+93,2025-02-10,Follow-up,No Response,,True,True,False
+93,2025-03-01,Follow-up,Opened,,False,True,True
+94,2024-12-21,Contract,No Response,,True,False,False
+94,2025-01-30,Follow-up,Opened,107.0,True,False,False
+94,2025-01-08,Outreach,Replied,,True,False,True
+94,2025-02-22,Proposal,No Response,90.0,False,False,True
+94,2025-01-01,Documentation,Clicked,,False,True,False
+94,2025-01-03,Contract,Opened,120.0,False,False,False
+94,2025-01-25,Proposal,Opened,27.0,False,True,True
+95,2025-01-17,Contract,Clicked,,True,False,True
+95,2025-01-07,Contract,Opened,,True,True,True
+95,2024-12-17,Proposal,Clicked,,False,True,False
+95,2025-04-29,Follow-up,Clicked,23.0,True,False,False
+95,2025-04-27,Outreach,Opened,61.0,True,True,False
+95,2024-12-19,Follow-up,No Response,,True,True,False
+95,2024-11-02,Contract,Opened,156.0,False,False,False
+95,2024-11-18,Documentation,No Response,2.0,True,True,True
+95,2024-11-01,Pricing,Opened,,False,True,True
+95,2025-03-26,Pricing,Opened,96.0,False,False,False
+95,2024-12-31,Contract,Replied,106.0,True,True,False
+95,2025-01-27,Pricing,Replied,14.0,True,False,True
+95,2024-11-25,Pricing,Replied,138.0,False,True,True
+96,2025-06-15,Documentation,Replied,150.0,True,False,True
+96,2025-03-15,Contract,Clicked,155.0,True,True,True
+96,2025-05-26,Proposal,Replied,,False,True,True
+96,2025-04-06,Outreach,Replied,133.0,False,True,False
+96,2025-07-11,Outreach,Replied,126.0,False,False,False
+96,2025-08-09,Outreach,Opened,32.0,False,True,True
+96,2025-03-21,Outreach,Clicked,,False,False,True
+96,2025-02-06,Documentation,Clicked,,True,False,True
+96,2025-02-25,Follow-up,Clicked,,False,False,True
+96,2025-05-21,Pricing,Clicked,,True,False,False
+96,2025-05-19,Pricing,Clicked,134.0,False,False,True
+96,2025-03-01,Follow-up,Replied,135.0,False,True,False
+96,2025-04-17,Follow-up,No Response,104.0,True,True,True
+96,2025-07-15,Proposal,Opened,26.0,False,False,True
+96,2025-07-05,Outreach,Replied,74.0,False,True,True
+96,2025-08-01,Documentation,Replied,103.0,False,False,False
+96,2025-06-21,Contract,No Response,133.0,False,True,False
+97,2025-05-08,Pricing,Clicked,84.0,True,False,True
+97,2025-04-03,Proposal,Clicked,48.0,True,True,True
+97,2025-02-09,Follow-up,No Response,,True,False,True
+97,2025-04-17,Documentation,Clicked,,True,False,False
+97,2024-12-03,Contract,No Response,55.0,False,True,True
+97,2025-02-17,Contract,Replied,133.0,True,True,False
+97,2024-11-26,Proposal,No Response,36.0,False,False,True
+97,2025-04-15,Follow-up,No Response,,True,False,False
+97,2024-12-19,Pricing,No Response,,False,False,True
+97,2025-01-20,Outreach,No Response,,True,True,True
+97,2025-04-10,Proposal,Replied,64.0,True,False,False
+97,2025-04-13,Follow-up,Clicked,,False,True,True
+97,2025-01-07,Documentation,Clicked,1.0,False,False,False
+97,2024-12-12,Outreach,Opened,,True,True,True
+97,2025-05-16,Follow-up,Replied,12.0,True,False,True
+97,2025-05-01,Contract,Replied,75.0,True,False,True
+97,2025-03-22,Documentation,Clicked,149.0,False,False,True
+98,2025-04-20,Proposal,Clicked,,False,True,False
+98,2025-02-05,Documentation,Replied,,True,True,False
+98,2024-11-20,Contract,No Response,,True,True,False
+98,2024-10-20,Pricing,Opened,,False,False,True
+98,2024-11-26,Pricing,Opened,,True,False,False
+98,2024-11-02,Follow-up,Clicked,116.0,True,True,True
+99,2025-03-01,Contract,Clicked,88.0,False,True,False
+99,2025-04-18,Outreach,No Response,52.0,True,True,True
+99,2025-05-03,Follow-up,Opened,,True,True,False
+99,2025-01-29,Pricing,Replied,119.0,False,False,False
+99,2024-12-31,Follow-up,Clicked,,True,False,False
+99,2025-02-05,Pricing,Opened,148.0,False,True,True
+99,2025-03-11,Proposal,Opened,110.0,False,False,True
+99,2025-01-29,Documentation,Clicked,,True,False,False
+99,2025-04-15,Outreach,Clicked,,False,True,True
+99,2024-12-19,Outreach,Clicked,125.0,True,True,True
+99,2025-02-04,Pricing,No Response,146.0,False,False,False
+99,2025-01-28,Documentation,Clicked,29.0,True,False,False
+99,2024-12-07,Proposal,Clicked,,True,False,False
+99,2025-03-13,Contract,Opened,,False,True,False
+99,2025-04-06,Follow-up,No Response,3.0,False,True,False
+100,2025-01-31,Contract,Clicked,57.0,False,False,True
+100,2025-02-01,Documentation,Replied,85.0,False,True,False
+100,2025-04-23,Pricing,Clicked,133.0,True,True,True
+100,2025-04-03,Pricing,No Response,,True,False,True
+100,2025-04-30,Pricing,Replied,40.0,True,True,False
+100,2025-01-18,Pricing,Clicked,,False,False,True
+100,2025-03-27,Pricing,Replied,165.0,True,False,False
+100,2025-05-05,Contract,No Response,167.0,False,True,False
+100,2025-02-24,Follow-up,No Response,,False,False,True
