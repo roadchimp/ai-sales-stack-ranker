@@ -13,6 +13,7 @@ import { DollarSign, Calendar, TrendingUp, Eye, MoreHorizontal } from "lucide-re
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { getOpportunities, type OpportunityRecord } from "@/lib/api-client"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 const getHealthColor = (health: string) => {
   switch (health) {
@@ -214,9 +215,11 @@ export default function PipelinePage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link href={`/opportunities/${opp.id}`}>
                             <Eye className="h-4 w-4 mr-2" />
                             View Details
+                            </Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem>
                             <TrendingUp className="h-4 w-4 mr-2" />
