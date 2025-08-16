@@ -4,9 +4,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
 import { Scatter, ScatterChart, ResponsiveContainer, XAxis, YAxis, CartesianGrid } from "recharts"
 import { sampleOpportunities } from "@/lib/sample-data"
+import { useRouter } from "next/navigation"
+
+type BubbleDataPoint = {
+  x: number
+  y: number
+  z: number
+  name: string
+  account: string
+  stage: string
+  id: string
+}
 
 // Convert opportunities to bubble chart format
-const bubbleData = sampleOpportunities.map((opp) => ({
+const bubbleData: BubbleDataPoint[] = sampleOpportunities.map((opp) => ({
   x: new Date(opp.closeDate).getTime(),
   y: opp.predictionScore,
   z: opp.amount,
@@ -20,7 +31,7 @@ const formatDate = (timestamp: number) => {
   return new Date(timestamp).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
 }
 
-const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: { name: string; account: string; amount: number; age: number; createdDate: string } }> }) => {
+const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ payload: BubbleDataPoint }> }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload
     return (
@@ -31,25 +42,21 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<
         <p className="text-sm">Value: ${(data.z / 1000).toFixed(0)}K</p>
         <p className="text-sm">Probability: {data.y}%</p>
         <p className="text-sm">Close Date: {formatDate(data.x)}</p>
-        <p className="text-xs text-muted-foreground mt-1">Click to view in table</p>
+        <p className="text-xs text-muted-foreground mt-1">Click to view details</p>
       </div>
     )
   }
   return null
 }
 
-const CustomScatter = (props: { payload?: { stage: string; amount: number }; cx?: number; cy?: number }) => {
+const CustomScatter = (props: { payload?: BubbleDataPoint; cx?: number; cy?: number }) => {
   const { payload } = props
+  const router = useRouter()
   if (!payload) return null // guard ✅
 
   const handleClick = () => {
-    // Scroll to the corresponding table row
-    const tableRow = document.querySelector(`[data-opportunity-id="${payload.id}"]`)
-    if (tableRow) {
-      tableRow.scrollIntoView({ behavior: "smooth", block: "center" })
-      tableRow.classList.add("bg-primary/10")
-      setTimeout(() => tableRow.classList.remove("bg-primary/10"), 2000)
-    }
+    // Navigate to opportunity details page
+    router.push(`/opportunities/${payload.id}`)
   }
 
   return (
@@ -73,7 +80,7 @@ export function PipelineBubbleChart() {
       <CardHeader>
         <CardTitle>Opportunity Timeline</CardTitle>
         <CardDescription>
-          Deal probability vs expected close date (bubble size = deal value) • Click to view in table
+          Deal probability vs expected close date (bubble size = deal value) • Click to view details
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -106,7 +113,7 @@ export function PipelineBubbleChart() {
               <ChartTooltip content={<CustomTooltip />} />
               <Scatter
                 dataKey="y"
-                shape={(props) => <CustomScatter {...props} />} // <-- render-function
+                shape={(props: any) => <CustomScatter {...props} />} // <-- render-function
               />
             </ScatterChart>
           </ResponsiveContainer>

@@ -45,6 +45,7 @@ import {
 import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 // Combined interaction data - 8 months from Jan 2025 to Aug 2025 (current month)
 const interactionData = [
@@ -171,6 +172,7 @@ const meddiccData = [
 export default function OpportunityDetailPage() {
   const params = useParams()
   const opportunityId = params.id as string
+  const router = useRouter()
 
   const [opportunity, setOpportunity] = useState<OpportunityRecord | null>(null)
   const [loading, setLoading] = useState(true)
@@ -215,13 +217,10 @@ export default function OpportunityDetailPage() {
                 <CardTitle>Opportunity Not Found</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>The requested opportunity could not be found.</p>
-                <Button asChild className="mt-4">
-                  <Link href="/opportunities">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Opportunities
-                  </Link>
-                </Button>
+              <Button onClick={() => router.back()}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Previous Page
+              </Button>
               </CardContent>
             </Card>
           </div>
@@ -306,11 +305,9 @@ export default function OpportunityDetailPage() {
     <SidebarInset>
       <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
         <SidebarTrigger className="-ml-1" />
-        <Button variant="ghost" size="sm" asChild>
-          <Link href="/opportunities">
+        <Button variant="ghost" size="sm" onClick={() => router.back()}>
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
-          </Link>
         </Button>
         <div className="flex items-center gap-2">
           <Brain className="h-5 w-5 text-primary" />

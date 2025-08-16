@@ -110,10 +110,14 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
 
   async getOpportunityById(rawId: string): Promise<OpportunityRecord | null> {
     try {
-      const where = isNaN(Number(rawId)) ? { externalId: rawId } : { id: Number(rawId) }
+      const id = parseInt(rawId)
+      if (isNaN(id)) {
+        console.warn("getOpportunityById received non-numeric ID:", rawId)
+        return null
+      }
 
       const opportunity = await prisma.opportunity.findFirst({
-        where,
+        where: { id },
         include: {
           account: true,
           rep: true,
@@ -131,7 +135,7 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
       const healthScore: "high" | "medium" | "low" = this.inferHealthScore(opportunity.probability)
 
       return {
-        id: opportunity.externalId,
+        id: opportunity.id.toString(),
         name: opportunity.title || "Untitled Opportunity",
         owner: opportunity.rep.name,
         ownerRole: opportunity.rep.title || "Sales Rep",
@@ -245,7 +249,7 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
       })
 
       return {
-        id: opportunity.externalId,
+        id: opportunity.id.toString(),
         name: opportunity.title || "Untitled",
         owner: opportunity.rep.name,
         ownerRole: opportunity.rep.title || "Sales Rep",
@@ -272,13 +276,10 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
     data: Partial<Omit<OpportunityRecord, "id">>
   ): Promise<OpportunityRecord> {
     try {
-      const opportunity = await prisma.opportunity.findFirst({
-        where: { externalId: id },
-      })
-      if (!opportunity) {
-        throw new Error("Opportunity not found")
+      const opportunityId = parseInt(id)
+       if (isNaN(opportunityId)) {
+        throw new Error("Invalid opportunity ID")
       }
-      const opportunityId = opportunity.id
 
       const updateData: any = {}
       if (data.name) updateData.title = data.name
@@ -354,13 +355,10 @@ class PostgresOpportunityDAL implements IOpportunityDAL {
 
   async deleteOpportunity(id: string): Promise<void> {
     try {
-       const opportunity = await prisma.opportunity.findFirst({
-        where: { externalId: id },
-      })
-      if (!opportunity) {
-        throw new Error("Opportunity not found")
+      const opportunityId = parseInt(id)
+      if (isNaN(opportunityId)) {
+        throw new Error("Invalid opportunity ID")
       }
-      const opportunityId = opportunity.id
       
       // Delete related analytics
       await prisma.analytics.deleteMany({
