@@ -46,24 +46,96 @@ import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
 
-// Sample cumulative interaction data
+// Combined interaction data - 8 months from Jan 2025 to Aug 2025 (current month)
 const interactionData = [
-  { date: "2024-09-01", email: 0, phone: 45, video: 90, inPerson: 0 },
-  { date: "2024-10-01", email: 0, phone: 75, video: 90, inPerson: 0 },
-  { date: "2024-11-01", email: 120, phone: 110, video: 90, inPerson: 0 },
-  { date: "2024-12-01", email: 300, phone: 155, video: 90, inPerson: 0 },
-  { date: "2025-01-01", email: 300, phone: 215, video: 90, inPerson: 0 },
-  { date: "2025-02-01", email: 300, phone: 240, video: 90, inPerson: 0 },
-]
-
-// Benchmark interaction data for comparison
-const benchmarkInteractionData = [
-  { date: "2024-09-01", email: 0, phone: 30, video: 60, inPerson: 0 },
-  { date: "2024-10-01", email: 0, phone: 55, video: 60, inPerson: 0 },
-  { date: "2024-11-01", email: 80, phone: 80, video: 60, inPerson: 0 },
-  { date: "2024-12-01", email: 200, phone: 105, video: 60, inPerson: 0 },
-  { date: "2025-01-01", email: 200, phone: 140, video: 60, inPerson: 0 },
-  { date: "2025-02-01", email: 200, phone: 165, video: 60, inPerson: 0 },
+  {
+    date: "2025-01-01",
+    currentEmail: 0,
+    currentPhone: 30,
+    currentVideo: 60,
+    currentInPerson: 0,
+    benchmarkEmail: 0,
+    benchmarkPhone: 20,
+    benchmarkVideo: 40,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-02-01",
+    currentEmail: 0,
+    currentPhone: 60,
+    currentVideo: 60,
+    currentInPerson: 0,
+    benchmarkEmail: 0,
+    benchmarkPhone: 40,
+    benchmarkVideo: 40,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-03-01",
+    currentEmail: 80,
+    currentPhone: 90,
+    currentVideo: 60,
+    currentInPerson: 0,
+    benchmarkEmail: 60,
+    benchmarkPhone: 60,
+    benchmarkVideo: 40,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-04-01",
+    currentEmail: 180,
+    currentPhone: 120,
+    currentVideo: 60,
+    currentInPerson: 0,
+    benchmarkEmail: 120,
+    benchmarkPhone: 80,
+    benchmarkVideo: 40,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-05-01",
+    currentEmail: 240,
+    currentPhone: 150,
+    currentVideo: 60,
+    currentInPerson: 0,
+    benchmarkEmail: 160,
+    benchmarkPhone: 100,
+    benchmarkVideo: 40,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-06-01",
+    currentEmail: 280,
+    currentPhone: 180,
+    currentVideo: 90,
+    currentInPerson: 0,
+    benchmarkEmail: 180,
+    benchmarkPhone: 120,
+    benchmarkVideo: 60,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-07-01",
+    currentEmail: 300,
+    currentPhone: 210,
+    currentVideo: 90,
+    currentInPerson: 0,
+    benchmarkEmail: 200,
+    benchmarkPhone: 140,
+    benchmarkVideo: 60,
+    benchmarkInPerson: 0,
+  },
+  {
+    date: "2025-08-01",
+    currentEmail: 300,
+    currentPhone: 240,
+    currentVideo: 90,
+    currentInPerson: 0,
+    benchmarkEmail: 200,
+    benchmarkPhone: 160,
+    benchmarkVideo: 60,
+    benchmarkInPerson: 0,
+  },
 ]
 
 // Sample stage progress data
@@ -192,23 +264,23 @@ export default function OpportunityDetailPage() {
   // Calculate interaction totals from current data
   const latestInteraction = interactionData[interactionData.length - 1]
   const totalInteractions =
-    latestInteraction.email + latestInteraction.phone + latestInteraction.video + latestInteraction.inPerson
-  const emailPercentage = Math.round((latestInteraction.email / totalInteractions) * 100)
-  const phonePercentage = Math.round((latestInteraction.phone / totalInteractions) * 100)
-  const videoPercentage = Math.round((latestInteraction.video / totalInteractions) * 100)
-  const inPersonPercentage = Math.round((latestInteraction.inPerson / totalInteractions) * 100)
+    latestInteraction.currentEmail + latestInteraction.currentPhone + latestInteraction.currentVideo + latestInteraction.currentInPerson
+  const emailPercentage = Math.round((latestInteraction.currentEmail / totalInteractions) * 100)
+  const phonePercentage = Math.round((latestInteraction.currentPhone / totalInteractions) * 100)
+  const videoPercentage = Math.round((latestInteraction.currentVideo / totalInteractions) * 100)
+  const inPersonPercentage = Math.round((latestInteraction.currentInPerson / totalInteractions) * 100)
 
   // Calculate engagement quality based on interaction data
   const calculateEngagementMetrics = () => {
     // Email response rate based on email interactions
-    const emailResponseRate = Math.min(95, Math.max(60, (latestInteraction.email / 300) * 100))
+    const emailResponseRate = Math.min(95, Math.max(60, (latestInteraction.currentEmail / 300) * 100))
 
     // Meeting attendance based on video/phone calls
-    const totalMeetings = latestInteraction.phone + latestInteraction.video
+    const totalMeetings = latestInteraction.currentPhone + latestInteraction.currentVideo
     const meetingAttendance = Math.min(98, Math.max(70, (totalMeetings / 330) * 100))
 
     // Demo completion based on video interactions
-    const demoCompletion = Math.min(90, Math.max(50, (latestInteraction.video / 90) * 100))
+    const demoCompletion = Math.min(90, Math.max(50, (latestInteraction.currentVideo / 90) * 100))
 
     // Stakeholder reach based on total interactions
     const stakeholderReach = Math.min(95, Math.max(60, (totalInteractions / 630) * 100))
@@ -374,82 +446,99 @@ export default function OpportunityDetailPage() {
                 className="h-[400px]"
               >
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
+                  <LineChart data={interactionData} margin={{ top: 20, right: 30, left: 20, bottom: 80 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis
                       dataKey="date"
+                      type="category"
                       tickFormatter={(value) =>
-                        new Date(value).toLocaleDateString("en-US", { month: "short", year: "2-digit" })
+                        new Date(value).toLocaleDateString("en-US", {
+                          month: "short",
+                          year: "2-digit",
+                        })
                       }
                       angle={-45}
                       textAnchor="end"
                       height={80}
-                      interval={0}
+                      interval={0} // Show all labels
+                      tick={{ fontSize: 12 }}
                     />
                     <YAxis
                       label={{ value: "Cumulative Duration (min)", angle: -90, position: "insideLeft" }}
                       width={80}
                     />
-                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <ChartTooltip
+                      content={<ChartTooltipContent />}
+                      labelFormatter={(value) =>
+                        new Date(value).toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })
+                      }
+                    />
                     <Legend />
 
                     {/* Current Deal Lines */}
-                    {interactionData.map((_, index) => (
-                      <Line
-                        key={`current-email-${index}`}
-                        data={interactionData}
-                        type="monotone"
-                        dataKey="email"
-                        stroke="#3b82f6"
-                        strokeWidth={3}
-                        name="Current - Email"
-                        strokeDasharray="0"
-                      />
-                    ))}
                     <Line
-                      data={interactionData}
                       type="monotone"
-                      dataKey="phone"
+                      dataKey="currentEmail"
+                      stroke="#3b82f6"
+                      strokeWidth={3}
+                      name="Current - Email"
+                      strokeDasharray="0"
+                      dot={{ fill: "#3b82f6", strokeWidth: 2, r: 4 }}
+                      connectNulls={false}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="currentPhone"
                       stroke="#10b981"
                       strokeWidth={3}
                       name="Current - Phone"
+                      dot={{ fill: "#10b981", strokeWidth: 2, r: 4 }}
+                      connectNulls={false}
                     />
                     <Line
-                      data={interactionData}
                       type="monotone"
-                      dataKey="video"
+                      dataKey="currentVideo"
                       stroke="#8b5cf6"
                       strokeWidth={3}
                       name="Current - Video"
+                      dot={{ fill: "#8b5cf6", strokeWidth: 2, r: 4 }}
+                      connectNulls={false}
                     />
 
                     {/* Benchmark Lines */}
                     <Line
-                      data={benchmarkInteractionData}
                       type="monotone"
-                      dataKey="email"
+                      dataKey="benchmarkEmail"
                       stroke="#93c5fd"
                       strokeWidth={2}
                       strokeDasharray="5 5"
                       name="Benchmark - Email"
+                      dot={{ fill: "#93c5fd", strokeWidth: 1, r: 3 }}
+                      connectNulls={false}
                     />
                     <Line
-                      data={benchmarkInteractionData}
                       type="monotone"
-                      dataKey="phone"
+                      dataKey="benchmarkPhone"
                       stroke="#86efac"
                       strokeWidth={2}
                       strokeDasharray="5 5"
                       name="Benchmark - Phone"
+                      dot={{ fill: "#86efac", strokeWidth: 1, r: 3 }}
+                      connectNulls={false}
                     />
                     <Line
-                      data={benchmarkInteractionData}
                       type="monotone"
-                      dataKey="video"
+                      dataKey="benchmarkVideo"
                       stroke="#c4b5fd"
                       strokeWidth={2}
                       strokeDasharray="5 5"
                       name="Benchmark - Video"
+                      dot={{ fill: "#c4b5fd", strokeWidth: 1, r: 3 }}
+                      connectNulls={false}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -485,10 +574,10 @@ export default function OpportunityDetailPage() {
                   >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis type="number" label={{ value: "Days in Stage", position: "insideBottom", offset: -10 }} />
-                    <YAxis dataKey="stage" type="category" width={120} tick={{ fontSize: 12 }} />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="completed" fill="var(--color-completed)" />
-                    <Bar dataKey="projected" fill="var(--color-projected)" fillOpacity={0.6} />
+                    <YAxis dataKey="stage" type="category" width={130} tick={{ fontSize: 12 }} interval={0} />
+                    <ChartTooltip content={<ChartTooltipContent />} formatter={(value, name) => [`${value} days`, name]} />
+                    <Bar dataKey="completed" fill="var(--color-completed)" name="Completed" radius={[0, 4, 4, 0]} minPointSize={5} />
+                    <Bar dataKey="projected" fill="var(--color-projected)" fillOpacity={0.6} name="Projected" radius={[0, 4, 4, 0]} minPointSize={5} />
                   </BarChart>
                 </ResponsiveContainer>
               </ChartContainer>

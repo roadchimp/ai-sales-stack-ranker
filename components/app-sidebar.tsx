@@ -38,7 +38,7 @@ export function AppSidebar() {
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-2">
           <BarChart3 className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg">Stack Ranker 2.0</span>
+          <span className="font-bold text-lg">Predictive Sales Analytics</span>
         </div>
       </SidebarHeader>
       <SidebarContent>

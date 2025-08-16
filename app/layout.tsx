@@ -10,7 +10,7 @@ import { ThemeProvider } from "@/contexts/theme-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sales Stack Ranker 2.0",
+  title: "Predictive Sales Analytics",
   description: "Predictive Analytics Platform for Sales Teams",
     generator: 'v0.dev'
 }
